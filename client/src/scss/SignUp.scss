@@ -1,0 +1,72 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.signup-content {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; 
+}
+
+.signup-content div {
+  width: 50%;
+  height: 100%;
+}
+
+.chairs {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.signup-form {
+    position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: white;
+  padding: 2rem;
+}
+
+.signup-form form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+}
+
+.signup-form form input {
+  margin-bottom: 1rem;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 12px;
+  background-color: variables.$w-gray;
+  border: 0;
+}
+
+.signup-form button {
+  padding: 10px;
+  width: 150px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.signup-form p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.signup-form p a {
+  color: variables.$decor-cal;
+  text-decoration: none;
+}
