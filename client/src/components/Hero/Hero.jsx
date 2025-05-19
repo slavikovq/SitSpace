@@ -1,4 +1,4 @@
-import "../../scss/hero.scss";
+import "../../scss/Hero.scss";
 import { HashLink } from "react-router-hash-link";
 
 export default function Hero() {

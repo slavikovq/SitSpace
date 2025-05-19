@@ -1,3 +1,4 @@
+import { HashLink } from "react-router-hash-link";
 import "../../scss/Footer.scss";
 import logo from "../../assets/img/footer-logo.png";
 import circle from "../../assets/icons/gray-circle.png";
@@ -13,10 +14,10 @@ export default function Footer() {
           <div>
             <h1>Useful links</h1>
             <ul>
-              <li>About us</li>
-              <li>How to begin</li>
-              <li>Reviews</li>
-              <li>Sign-up</li>
+              <li><HashLink to="/#AboutUs">About us</HashLink></li>
+              <li><HashLink to="/#HowToBegin">How to begin</HashLink></li>
+              <li><HashLink to="/#WhatPeopleAreSaying">Reviews</HashLink></li>
+              <li><HashLink to="/">Sign-up</HashLink></li>
             </ul>
           </div>
           <div className="footer-contact">
