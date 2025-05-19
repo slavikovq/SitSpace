@@ -1,0 +1,47 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.navbar {
+  padding: 2% 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.menu ul {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+}
+
+.menu ul li {
+  font-size: 1.4rem;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  width: 220px;
+}
+
+.start-button {
+  padding: 5px;
+  font-size: 1.2rem;
+  border: 2px variables.$dark-gray solid;
+  background-color: transparent;
+  border-radius: 12px;
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}

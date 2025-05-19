@@ -1,0 +1,54 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.hero {
+  height: 80vh;
+  padding: 8% 8%;
+  display: flex;
+}
+
+.content {
+}
+
+.content h1 {
+  width: 500px;
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 5rem;
+  letter-spacing: 7px;
+}
+
+.content p{
+  font-size: 20px;
+}
+
+.buttons {
+  gap: 30px;
+  display: flex;
+  
+}
+
+.GS-button,
+.AU-button {
+  padding: 5px;
+  width: 170px;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.GS-button {
+  background-color: black;
+  color: white;
+}
+
+.AU-button {
+  background-color: white;
+  border: 2px black solid;
+}

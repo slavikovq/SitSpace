@@ -1,0 +1,78 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.main {
+  display: flex;
+  gap: 150px;
+  padding: 5% 5%;
+}
+
+.main h1 {
+  font-size: 3rem;
+}
+
+.main h6 {
+  font-size: 1.2rem;
+  color: variables.$decor-cal;
+  line-height: 0.1rem;
+}
+
+.main p {
+  font-size: 1.5rem;
+}
+
+.people {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.main div {
+  width: 50%;
+}
+
+.about-content {
+  padding: 3% 4%;
+}
+
+#Statistics {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  text-align: center;
+  margin-top: -80px;
+}
+
+.statistics-card {
+  background-color: variables.$w-gray;
+  width: 1200px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+.statistics-card h1{
+  font-size: 3.5rem;
+  line-height: 4rem;
+}
+
+.statistics-card p{
+  font-size: 2rem;
+    line-height: 3rem;
+}
+
+.statistics-card > div {
+  flex: 1;
+}
+
+.statistics-card > div:not(:first-child) {
+  border-left: 3px solid black;
+  padding-left: 20px;
+}
+
+.statistics-card > div:not(:last-child) {
+  padding-right: 20px;
+}

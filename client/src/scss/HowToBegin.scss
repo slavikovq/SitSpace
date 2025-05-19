@@ -1,0 +1,50 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.htb-content {
+  padding: 5% 5%;
+}
+
+.htb-title {
+  text-align: center;
+}
+
+.htb-content h6 {
+  font-size: 1.2rem;
+  color: variables.$decor-cal;
+  line-height: 0.1rem;
+}
+
+.htb-content h1 {
+  font-size: 3rem;
+}
+
+.htb-cards {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.htb-card {
+  width: 450px;
+  padding: 60px;
+  border-radius: 15px;
+  background-color: variables.$w-gray;
+}
+
+.htb-card h3 {
+  text-align: center;
+  font-size: 3.3rem;
+  color: variables.$decor-cal;
+  line-height: 1.4rem;
+}
+
+.htb-card h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.htb-card p {
+    text-align: center;
+    font-size: 1.1rem;
+}
