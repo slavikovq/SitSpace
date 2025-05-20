@@ -28,10 +28,11 @@ export default function AboutUs() {
             <h6>—SitSpace</h6>
             <h1>About us</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-              quisquam accusantium eligendi dolores repellat voluptatem
-              consectetur eum beatae. Ratione rem expedita quis. Ullam possimus
-              ab mollitia dolorum rerum, ducimus officia.
+            We are an innovative tech company offering a simple and efficient tool for designing furniture layouts, like Figma,
+            but for tables and chairs. Our platform is perfect for classrooms, offices, events,
+            or any space where thoughtful arrangement matters. With an intuitive, real-time collaborative editor,
+            users can easily plan and customize room layouts to fit their needs. Our mission is to save time,
+            simplify spatial planning, and improve the way people organize their environments.
             </p>
           </div>
           <div>

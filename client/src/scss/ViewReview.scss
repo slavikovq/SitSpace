@@ -1,0 +1,55 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.view-review {
+  background-image: url("../assets/img/review.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.view-review-card {
+  background-color: variables.$w-gray;
+  width: 1200px;
+  height: 600px;
+  padding: 1% 1%;
+}
+
+.person-description {
+  display: flex;
+}
+
+.person-description img{
+    width: 100px;
+    height: 100px;
+}
+
+.review-bar{
+    background-color: white;
+    margin: 5px;
+    bottom: 0;
+    display: flex;
+    flex-flow: row-reverse;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.review-text{
+    height: 350px;
+}
+
+.e-button {
+    background-color: white;
+    border: 2px black solid;
+}
+
+.d-button {
+    background-color: white;
+    border: 2px red solid;
+}
+
+.b-button {
+    background-color: black;
+    color: white;
+}

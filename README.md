@@ -79,4 +79,3 @@ npm run dev
 ## 🧪 Example Use Cases
 
 - A teacher wants to assign students to seats and visualize their arrangement.  
-

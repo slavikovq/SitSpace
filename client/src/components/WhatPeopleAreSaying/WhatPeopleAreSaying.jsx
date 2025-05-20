@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../../scss/WhatPeopleAreSaying.scss";
 import ReviewCard from "../ReviewCard/ReviewCard";
 
@@ -19,7 +20,9 @@ export default function WhatPeopleAreSaying() {
             <ReviewCard />
           </div>
           <div className="wps-button">
-            <button className="all-reviews-button">Show all reviews</button>
+            <Link to={"/Reviews"} className="all-reviews-button">
+              Show all reviews{" "}
+            </Link>
           </div>
         </div>
       </div>
