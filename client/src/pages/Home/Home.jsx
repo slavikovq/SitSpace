@@ -6,6 +6,7 @@ import AboutUs from "../../components/AboutUs/AboutUs";
 import HowToBegin from "../../components/HowToBegin/HowToBegin";
 import WhatPeopleAreSaying from "../../components/WhatPeopleAreSaying/WhatPeopleAreSaying";
 import Footer from "../../components/Footer/Footer";
+import ScrollReveal from "../../components/ScrollMotion/ScrollMotion";
 
 export default function Home() {
   return (
@@ -14,9 +15,15 @@ export default function Home() {
         <Navbar />
         <Hero />
       </div>
-      <AboutUs />
-      <HowToBegin/>
-      <WhatPeopleAreSaying/>
+      <ScrollReveal>
+        <AboutUs />
+      </ScrollReveal>
+      <ScrollReveal>
+        <HowToBegin/>
+      </ScrollReveal>
+      <ScrollReveal>
+        <WhatPeopleAreSaying/>
+      </ScrollReveal>
       <Footer/>
     </>
   );
