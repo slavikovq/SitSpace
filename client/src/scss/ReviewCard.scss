@@ -20,11 +20,17 @@
   gap: 10px;
 }
 
-.review-card p {
+.review {
   color: #767676;
   mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 50%,
     rgba(0, 0, 0, 0)
   );
+}
+
+.reviewer {
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
