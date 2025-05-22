@@ -25,7 +25,7 @@ export default function Navbar() {
         </div>
 
         <div>
-          <Link to={"/SignUp"} className="start-button"> Get started now</Link>
+          <Link to={"/SignUp"} className="start-button"> Login now</Link>
         </div>
       </nav>
     </>

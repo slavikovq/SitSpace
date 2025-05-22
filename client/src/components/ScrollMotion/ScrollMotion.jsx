@@ -1,35 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
+import '../../scss/main-style.scss'; 
 
-const ScrollReveal = ({ children }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const elementPosition = document.getElementById("revealElement").offsetTop;
-    
-    if (scrollPosition > elementPosition) {
-      setIsVisible(true);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+export default function ScrollMotion({ children }) {
+  const { ref, inView } = useInView({
+    triggerOnce: true, 
+    threshold: 0.3,
+  });
 
   return (
-    <motion.div
-      id="revealElement"
-      initial={{ opacity: 0, y: 50 }}   
-      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
-      transition={{ duration: 2 }}
+    <div
+      ref={ref}
+      className={`scroll-animation ${inView ? 'animate' : ''}`}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
-
-export default ScrollReveal;
