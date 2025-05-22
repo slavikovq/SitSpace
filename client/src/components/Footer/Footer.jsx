@@ -24,7 +24,7 @@ export default function Footer() {
               <li><HashLink to="/#AboutUs">About us</HashLink></li>
               <li><HashLink to="/#HowToBegin">How to begin</HashLink></li>
               <li><HashLink to="/#WhatPeopleAreSaying">Reviews</HashLink></li>
-              <li><HashLink to="/">Sign-up</HashLink></li>
+              <li><HashLink to="/SignUp">Sign-up</HashLink></li>
             </ul>
           </div>
           <div className="footer-contact">

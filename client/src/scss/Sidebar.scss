@@ -1,0 +1,103 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.sidebar {
+  width: 325px;
+  height: 100vh;
+  background-color: variables.$sidebar;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 3px 5px -2px rgba(0, 0, 0, 0.6);
+}
+
+.sidebar-logo {
+  width: 100%;
+  max-width: 180px;
+  filter: variables.$white-filter;
+}
+
+.sidebar-part nav {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.sidebar-part img {
+  max-width: 25px;
+  width: 100%;
+  filter: variables.$white-filter;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .5rem .75rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1.2rem; 
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  background-color: variables.$hover;
+}
+
+.sidebar-profile {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding-top: 1rem;
+  border-top: 1px solid variables.$decor-cal;
+}
+
+.sidebar-profile img {
+  width: 60px;
+}
+
+.sidebar-profile-info {
+  flex-grow: 1;
+}
+
+.sidebar-profile .logout {
+  width: 25px;
+  filter: variables.$white-filter;
+}
+.sidebar-profile div {
+  width: 100%;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* LINE */
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  color: variables.$decor-cal;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 1rem 0;
+  gap: 0.7rem;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: variables.$decor-cal;
+}

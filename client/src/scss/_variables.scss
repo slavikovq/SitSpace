@@ -3,7 +3,10 @@ $w-gray: #EBEBEB;
 $footer-gray: #D9D9D9;
 $decor-cal: #D7B5A2;
 $dark-gray: #797979;
+$sidebar: #1E1E1E;
+$hover: #333333;
 
 // Filters
+$white-filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 $grey-filter: brightness(0) saturate(100%) invert(10%) sepia(6%) saturate(8%) hue-rotate(45deg) brightness(99%) contrast(89%);
 $decor-filter: brightness(0) saturate(100%) invert(99%) sepia(19%) saturate(3431%) hue-rotate(297deg) brightness(90%) contrast(91%);
