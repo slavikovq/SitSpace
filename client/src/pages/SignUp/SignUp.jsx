@@ -14,7 +14,7 @@ export default function SignUp() {
 
   const sendData = async () => {
     const emailRegex = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-    if (!emailRegex.test(formData.email)) return setInfo("Invalid email format");
+    if (!emailRegex.test(formData?.email)) return setInfo("All fields are required!");
   
     const res = await registerUser(formData);
     if(res.status === 201){
@@ -54,9 +54,11 @@ export default function SignUp() {
             <input type="text" name="last_name" placeholder="Last name" onChange={handleInput}/>
             <input type="email" name="email" placeholder="Email" onChange={handleInput}/>
             <input type="password" name="password" placeholder="Password" onChange={handleInput}/>
+            <p style={{color: "red", marginBottom: "10px"}}>{info}</p>
+            <div id="formBtn">
+              <button onClick={handleButton}>Sign Up</button>
+            </div>
           </form>
-          <button onClick={handleButton}>Sign Up</button>
-          <p style={{color: "red"}}>{info}</p>
           <p>
             Already have an account? <Link to={"/SignIn"}>Sign In</Link>
           </p>

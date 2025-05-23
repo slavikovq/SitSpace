@@ -14,11 +14,17 @@
 }
 
 .sp-title {
-  padding: 5px 30px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+  padding: 6px 30px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+
+  h1{
+    font-size: 1.7rem;
+  }
 }
 
 .sp-body {
-  flex: 1;
   padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
 }

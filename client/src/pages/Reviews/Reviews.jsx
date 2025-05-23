@@ -18,6 +18,14 @@ export default function Reviews() {
         <ReviewCard/>
         <ReviewCard/>
         <ReviewCard/>
+                <ReviewCard/>
+        <ReviewCard/>
+        <ReviewCard/>
+        <ReviewCard/>
+                <ReviewCard/>
+        <ReviewCard/>
+        <ReviewCard/>
+        <ReviewCard/>
       </div>
       <Footer/>
     </>

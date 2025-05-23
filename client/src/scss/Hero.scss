@@ -8,9 +8,6 @@
   display: flex;
 }
 
-.content {
-}
-
 .content h1 {
   width: 500px;
   font-size: 4.2rem;
@@ -19,7 +16,7 @@
   letter-spacing: 2px;
 }
 
-.content p{
+.content p {
   font-size: 20px;
 }
 
@@ -41,6 +38,16 @@
   text-decoration: none;
   color: inherit;
   align-items: center;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.2s ease;
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 }
 
 .GS-button {

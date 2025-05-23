@@ -10,14 +10,14 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ message: "Zadejte e-mail a heslo." });
+      return res.status(400).json({ message: "Enter your email and password." });
     }
 
     const user = await User.findOne({ email });
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res
         .status(401)
-        .json({ message: "Špatně zadaný email nebo heslo." });
+        .json({ message: "Wrong email or password." });
     }
 
     const token = jwt.sign({ userId: user._id, email }, process.env.TOKEN_KEY, {
@@ -35,13 +35,13 @@ exports.register = async (req, res) => {
     const { first_name, last_name, email, password } = req.body;
 
     if (!(first_name && last_name && email && password))
-      return res.status(400).send({ message: "Všechna pole jsou povinná!" });
+      return res.status(400).send({ message: "All fields are required!" });
 
     const userExist = await User.findOne({ email });
     if (userExist)
       return res
         .status(400)
-        .send({ message: "Tento email je již zaregistrován." });
+        .send({ message: "This email is already registered." });
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -67,7 +67,7 @@ exports.getUser = async (req, res) => {
       const user = await User.findById(req.user.userId).select("-password");
   
       if (!user) {
-        return res.status(404).json({ message: "Uživatel nenalezen" });
+        return res.status(404).json({ message: "User not found" });
       }
   
       res.status(200).send({

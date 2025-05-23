@@ -46,9 +46,11 @@ export default function SignIn() {
           <form>
             <input type="email" name="email" placeholder="Email" onChange={handleInput} />
             <input type="password" name="password" placeholder="Password" onChange={handleInput} />
+            <p style={{color: "red", marginBottom: "10px"}}>{info}</p>
+            <div id="formBtn">
+              <button onClick={handleButton}>Sign In</button>
+            </div>
           </form>
-          <button onClick={handleButton}>Sign In</button>
-          <p style={{color: "red"}}>{info}</p>
           <p>
             Do not have an account? <Link to={"/SignUp"}>Sign Up</Link>
           </p>

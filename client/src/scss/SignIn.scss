@@ -70,3 +70,18 @@
   text-decoration: none;
 }
 
+#formBtn{
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.2s ease;
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}

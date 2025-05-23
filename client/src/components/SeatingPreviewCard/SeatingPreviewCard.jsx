@@ -8,7 +8,7 @@ export default function SeatingPreviewCard() {
   return (
     <>
       <div className="sp-card">
-        <div className="header">Classroom name</div>
+        <h1 className="sp-header">Classroom name</h1>
         <div className="details">
           <div>
             <span>Group id:</span> #1
@@ -19,9 +19,8 @@ export default function SeatingPreviewCard() {
           <div>
             <span>Number of students:</span> 28
           </div>
-
         </div>
-                  <div className="footer">
+        <div className="sp-footer">
           <div className="sp-icons">
             <Link to={"/"}>
               <img src={pencil} alt="edit" />
@@ -34,7 +33,6 @@ export default function SeatingPreviewCard() {
             Show more...
           </Link>
         </div>
-        
       </div>
     </>
   );

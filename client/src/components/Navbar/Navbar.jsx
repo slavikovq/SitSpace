@@ -4,7 +4,11 @@ import { HashLink } from "react-router-hash-link";
 import logo from "../../assets/img/logo.png";
 import "../../scss/Navbar.scss";
 
+import { useAuth } from "../../context/AuthProvider";
+
 export default function Navbar() {
+  const { user } = useAuth();
+
   return (
     <>
       <nav className="navbar">
@@ -25,7 +29,7 @@ export default function Navbar() {
         </div>
 
         <div>
-          <Link to={"/SignUp"} className="start-button"> Login now</Link>
+          {user ? <Link to={"/sitManager/seatingPreview"} className="start-button" id="full"> Sit Manager</Link> : <Link to={"/SignUp"} className="start-button"> Login now</Link>}
         </div>
       </nav>
     </>

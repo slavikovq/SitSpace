@@ -7,8 +7,16 @@
   scroll-behavior: smooth;
 }
 
+::selection{
+  background-color: #d7b5a2b9;
+}
+
+img{
+  user-select: none;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);

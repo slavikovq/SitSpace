@@ -5,7 +5,7 @@ import '../../scss/main-style.scss';
 export default function ScrollMotion({ children }) {
   const { ref, inView } = useInView({
     triggerOnce: true, 
-    threshold: 0.3,
+    threshold: 0.2,
   });
 
   return (

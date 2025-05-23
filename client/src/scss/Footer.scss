@@ -32,15 +32,15 @@
     transform: scale(1.1);
     transition: .2s ease;
   }
+
+    &:active{
+    transform: scale(1);
+  }
 }
 .circle {
   width: 25px;
   height: 25px;
   filter: variables.$grey-filter;
-
-  &:hover{
-    filter: variables.$decor-filter;
-  }
 }
 #email{
   text-decoration: none;
@@ -70,6 +70,6 @@
 }
 
 .footer ul li a:hover{
-  color: variables.$decor-cal;
+  color: variables.$dark-decor-cal;
   transition: .2s ease;
 }

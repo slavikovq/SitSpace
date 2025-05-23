@@ -10,6 +10,7 @@ import logout from "../../assets/icons/logout.svg";
 import plus from "../../assets/icons/plus.svg";
 import star from "../../assets/icons/star.svg";
 import user from "../../assets/icons/user.svg";
+import house from "../../assets/icons/house.svg"
 
 export default function Sidebar() {
   return (
@@ -20,6 +21,12 @@ export default function Sidebar() {
         </div>
 
         <div className="sidebar-part">
+          <nav>
+            <Link to="/" className="nav-item">
+              <img src={house} alt="" />
+              Home
+            </Link>
+          </nav>
           <div className="section-divider">
             <span>SEATING</span>
           </div>
@@ -70,9 +77,9 @@ export default function Sidebar() {
 
         <div className="sidebar-profile">
           <img src={Katherine} alt="profile" />
-          <div>
+          <div className="inicials">
             <p className="name">Katherine Andrews</p>
-            <p>katherine@email.com</p>
+            <p className="email">katherine@email.com</p>
           </div>
           <img src={logout} alt="" className="logout" />
         </div>

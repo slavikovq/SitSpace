@@ -26,7 +26,9 @@
 
 .reviews-cards{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
   padding: 2% 3%;
   margin-top: -400px;
 }

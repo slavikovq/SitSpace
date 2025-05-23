@@ -3,7 +3,7 @@
 @use "./main-style.scss";
 
 .sidebar {
-  width: 325px;
+  width: 300px;
   height: 100vh;
   background-color: variables.$sidebar;
   color: white;
@@ -12,13 +12,17 @@
   padding: 1rem;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  box-shadow: 5px 3px 5px -2px rgba(0, 0, 0, 0.6);
+  box-shadow: 5px 3px 5px -2px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar-logo {
   width: 100%;
-  max-width: 180px;
+  max-width: 140px;
   filter: variables.$white-filter;
+}
+
+.sidebar-header{
+  margin-top: 15px;
 }
 
 .sidebar-part nav {
@@ -57,11 +61,14 @@
   align-items: center;
   gap: .75rem;
   padding-top: 1rem;
-  border-top: 1px solid variables.$decor-cal;
+  border-top: 1px solid variables.$hover;
+  margin-bottom: 5px;
 }
-
+.inicials{
+  line-height: 22px;
+}
 .sidebar-profile img {
-  width: 60px;
+  width: 45px;
 }
 
 .sidebar-profile-info {
@@ -71,6 +78,7 @@
 .sidebar-profile .logout {
   width: 25px;
   filter: variables.$white-filter;
+  margin-right: 13px;
 }
 .sidebar-profile div {
   width: 100%;
@@ -78,7 +86,12 @@
 
 .name {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
+}
+
+.email{
+  color: #ccc;
+  font-size: .9rem;
 }
 
 /* LINE */

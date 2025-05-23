@@ -28,6 +28,12 @@
 .menu ul li a {
   text-decoration: none;
   color: inherit;
+  transition: 0.2s ease;
+
+  &:hover {
+    color: variables.$dark-decor-cal;
+    transition: 0.2s ease;
+  }
 }
 
 .logo {
@@ -46,4 +52,20 @@
   font-weight: bold;
   text-decoration: none;
   color: inherit;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.2s ease;
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 }
+
+  #full{
+    border: 2px black solid;
+    background-color: black;
+    color: white;
+  }

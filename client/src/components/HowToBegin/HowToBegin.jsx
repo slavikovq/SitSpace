@@ -16,7 +16,7 @@ export default function HowToBegin() {
                 <h3>01</h3>
                 <h2>Log In</h2>
                 <p>
-                Click ”Login” in the top right corner. If you don't have an account, sign up quickly. Once logged in, you'll land on your dashboard to manage everything.
+                Click "Login" in the top right corner. If you don't have an account, sign up quickly. Once logged in, click "Sit Manager" in the top right to access your dashboard.
                 </p>
               </div>
               <div className="htb-card">

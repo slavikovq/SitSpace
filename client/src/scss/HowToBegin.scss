@@ -30,6 +30,16 @@
   padding: 60px;
   border-radius: 15px;
   background-color: variables.$w-gray;
+  transition: .2s ease;
+
+  &:hover{
+    transform: scale(1.05);
+    transition: .2s ease;
+  }
+
+  &:active{
+    transform: scale(1.05);
+  }
 }
 
 .htb-card h3 {
