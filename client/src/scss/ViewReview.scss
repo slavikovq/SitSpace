@@ -33,7 +33,7 @@
   gap: 1rem;
   margin-bottom: 1rem;
 
-  img {
+  #pfp   {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -55,8 +55,11 @@
       align-items: center;
       gap: 0.5rem;
 
-      p {
-        margin: 0;
+      img {
+        filter: variables.$decor-filter;
+        margin-top: -3px;
+        width: 20px;
+        height: 20px;
       }
     }
   }

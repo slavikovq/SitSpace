@@ -6,13 +6,43 @@ import clipboard from "../../assets/icons/clipboard.svg";
 import couch from "../../assets/icons/couch.svg";
 import folder from "../../assets/icons/folder.svg";
 import group from "../../assets/icons/group.svg";
-import logout from "../../assets/icons/logout.svg";
+import logoutIcon from "../../assets/icons/logout.svg";
 import plus from "../../assets/icons/plus.svg";
 import star from "../../assets/icons/star.svg";
-import user from "../../assets/icons/user.svg";
-import house from "../../assets/icons/house.svg"
+import userIcon from "../../assets/icons/user.svg";
+import house from "../../assets/icons/house.svg";
+
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthProvider";
+import { alert } from "../../utils/sweetAlert";
 
 export default function Sidebar() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const logoutConfirm = () => {
+    const Alert = Swal.mixin({
+      buttonsStyling: true,
+    });
+    Alert.fire({
+      title: "Do you really want to log out?",
+      showCancelButton: true,
+      confirmButtonText: "Yes, log out",
+      color: "black",
+      confirmButtonColor: "#D7B5A2",
+      cancelButtonText: "Stay logged in",
+      cancelButtonColor: "#1E1E1E",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logout();
+        navigate("/");
+        alert("info", "You have been logged out.");
+      }
+    });
+  };
+
   return (
     <>
       <div className="sidebar">
@@ -32,7 +62,7 @@ export default function Sidebar() {
           </div>
 
           <nav>
-            <Link to="/" className="nav-item">
+            <Link to="/sitManager/seatingPreview" className="nav-item">
               <img src={couch} alt="" />
               Seating Preview
             </Link>
@@ -65,10 +95,10 @@ export default function Sidebar() {
           </div>
           <nav>
             <Link to="/" className="nav-item">
-              <img src={user} alt="" />
+              <img src={userIcon} alt="" />
               Account
             </Link>
-            <Link to="/" className="nav-item">
+            <Link to="/sitManager/manageReview" className="nav-item">
               <img src={star} alt="" />
               Write a review
             </Link>
@@ -81,7 +111,7 @@ export default function Sidebar() {
             <p className="name">Katherine Andrews</p>
             <p className="email">katherine@email.com</p>
           </div>
-          <img src={logout} alt="" className="logout" />
+          <img src={logoutIcon} alt="" className="logout" onClick={logoutConfirm}/>
         </div>
       </div>
     </>

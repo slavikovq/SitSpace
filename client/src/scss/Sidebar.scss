@@ -31,16 +31,30 @@
   gap: .5rem;
 }
 
+.logout{
+  cursor: pointer;
+  transition: .2s ease;
+
+  &:hover{
+    transform: scale(1.1);
+    transition: .2s ease;
+  }
+  &:active{
+    transform: scale(1);
+  }
+}
+
 .sidebar-part img {
   max-width: 25px;
+  max-height: 25px;
   width: 100%;
   filter: variables.$white-filter;
 }
 
 .nav-item {
   display: flex;
-  align-items: center;
   gap: .75rem;
+  align-items: center;
   padding: .5rem .75rem;
   background: none;
   border: none;

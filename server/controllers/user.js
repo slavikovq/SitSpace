@@ -10,14 +10,14 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ message: "Enter your email and password." });
+      return res
+        .status(400)
+        .json({ message: "Enter your email and password." });
     }
 
     const user = await User.findOne({ email });
     if (!user || !(await bcrypt.compare(password, user.password))) {
-      return res
-        .status(401)
-        .json({ message: "Wrong email or password." });
+      return res.status(401).json({ message: "Wrong email or password." });
     }
 
     const token = jwt.sign({ userId: user._id, email }, process.env.TOKEN_KEY, {
@@ -63,19 +63,33 @@ exports.register = async (req, res) => {
 };
 
 exports.getUser = async (req, res) => {
-    try {
-      const user = await User.findById(req.user.userId).select("-password");
-  
-      if (!user) {
-        return res.status(404).json({ message: "User not found" });
-      }
-  
-      res.status(200).send({
-        message: "User found",
-        payload: user,
-      });
-    } catch (err) {
-      res.status(500).json({ erorr: err.message });
+  try {
+    const user = await User.findById(req.user.userId).select("-password");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
     }
-  };
-  
+
+    res.status(200).send({
+      message: "User found",
+      payload: user,
+    });
+  } catch (err) {
+    res.status(500).json({ erorr: err.message });
+  }
+};
+
+exports.getUserById = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).select("-password");
+
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    res.status(200).send({
+      message: "User found",
+      payload: user,
+    });
+  } catch (err) {
+    res.status(500).json({ erorr: err.message });
+  }
+};

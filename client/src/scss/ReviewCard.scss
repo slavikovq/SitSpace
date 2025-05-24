@@ -6,6 +6,7 @@
   background-color: variables.$w-gray;
   width: 300px;
   border-radius: 20px;
+  height: 400px;
   text-align: center;
   padding: 20px;
   transition: .2s ease;
@@ -37,10 +38,23 @@
     rgba(0, 0, 0, 1) 50%,
     rgba(0, 0, 0, 0)
   );
+  line-break: anywhere;
 }
 
 .reviewer {
   color: black;
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.rating{
+  display: flex;
+  align-items: center;
+
+  img{
+    margin-top: -3px;
+    width: 20px;
+    height: 20px;
+    filter: variables.$decor-filter
+  }
 }

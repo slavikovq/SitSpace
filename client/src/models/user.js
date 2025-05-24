@@ -45,25 +45,42 @@ export const loginUser = async (formData) => {
 };
 
 export const getUser = async () => {
-    const token = localStorage.getItem("token");
-  
-    if (!token) return null;
-  
-    const req = await fetch("http://localhost:3000/user", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      method: "GET",
-    });
-  
-    const data = await req.json();
-  
-    return {
-      status: req.status,
-      message: data.message,
-      payload: data.payload,
-    };
+  const token = localStorage.getItem("token");
+
+  if (!token) return null;
+
+  const req = await fetch("http://localhost:3000/user", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "GET",
+  });
+
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    message: data.message,
+    payload: data.payload,
   };
-  
+};
+
+export const getUserById = async (id) => {
+  const req = await fetch(`http://localhost:3000/user/${id}`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "GET",
+  });
+
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    message: data.message,
+    payload: data.payload,
+  };
+};
