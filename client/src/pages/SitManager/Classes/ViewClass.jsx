@@ -1,9 +1,14 @@
 import "../../../scss/ViewClass.scss";
 import SitManagerView from "../../../components/SitManagerView/SitManagerView";
+import { useEffect } from "react";
 
 export default function ViewClass() {
+  useEffect(() => {
+    document.title = "Class • SitSpace";
+  }, []);
+
   return (
-    <SitManagerView headerText="Class (Class_name)">
+    <SitManagerView headerText="Class (Class_name)" pageNow={"classes"}>
       <div className="c-body">
         <div className="class-info">
           <div className="class-details">

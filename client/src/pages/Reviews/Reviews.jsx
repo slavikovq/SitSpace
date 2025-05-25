@@ -13,6 +13,7 @@ export default function Reviews() {
     const [isLoading, setIsLoading] = useState(true);
   
     useState(() => {
+      document.title = "Reviews • SitSpace";
       const load = async () => {
         const res = await getAllReviews();
         if (res.status === 200) {

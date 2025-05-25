@@ -101,8 +101,8 @@ exports.updateUser = async (req, res) => {
 
     let profilePicture = user.profilePicture;
     let cloudinaryId = user.cloudinaryId;
-
-    if (req.body.removeProfilePicture) {
+    
+    if (req.body.removeProfilePicture === "true") {
       if (user.cloudinaryId) {
         await cloudinary.uploader.destroy(user.cloudinaryId);
         profilePicture = null;
@@ -129,6 +129,7 @@ exports.updateUser = async (req, res) => {
     user.first_name = req.body.first_name || user.first_name;
     user.last_name = req.body.last_name || user.last_name;
     user.email = req.body.email || user.email;
+    user.password = req.body.password || user.password;
     user.profilePicture = profilePicture;
     user.cloudinaryId = cloudinaryId;
 
@@ -140,5 +141,19 @@ exports.updateUser = async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ erorr: err.message });
+  }
+};
+
+exports.verifyPassword = async (req, res) => {
+  try {
+    const { password } = req.body;
+    const user = await User.findById(req.user.userId);
+
+    if (!user || !(await bcrypt.compare(password, user.password)))
+      return res.status(401).json({ message: "Wrong password." });
+
+    res.status(200).json({ message: "Password is correct." });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
