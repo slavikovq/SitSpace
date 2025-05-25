@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .view-review {
   background-image: url("../assets/img/review.png");
@@ -109,36 +109,17 @@
     background-color: white;
     border: 2px solid black;
     color: black;
-    transition: 0.2s ease;
-
-    &:hover {
-      transform: scale(1.05);
-      transition: 0.2s ease;
-    }
-
-    &:active {
-      transform: scale(1);
-    }
+    @include main.scale-hover-effect;
   }
 
   .d-button {
     background-color: white;
     border: 2px solid red;
     color: red;
-    transition: 0.2s ease;
-
-    &:hover {
-      transform: scale(1.05);
-      transition: 0.2s ease;
-    }
-
-    &:active {
-      transform: scale(1);
-    }
+    @include main.scale-hover-effect;
   }
 
   .b-button {
-    transition: 0.2s ease;
     a {
       background-color: black;
       color: white;
@@ -146,14 +127,6 @@
       border: 2px solid black;
       transition: 0.2s ease;
     }
-
-    &:hover {
-      transform: scale(1.05);
-      transition: 0.2s ease;
-    }
-
-    &:active {
-      transform: scale(1);
-    }
+    @include main.scale-hover-effect;
   }
 }

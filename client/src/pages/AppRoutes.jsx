@@ -34,7 +34,7 @@ export default function AppRoutes() {
           <Route element={<ProtectedRoute />}>
             <Route path="/sitManager/seatingPreview" element={<SeatingPreview/>} />
             <Route path="/sitManager/manageReview" element={hasUserReview ? <UpdateReview/> : <CreateReview/>} />
-            <Route path="sitManager/account" element={<Account/>} />
+            <Route path="/sitManager/account" element={<Account/>} />
           </Route>
 
           <Route path="*" element={<NotFound />}/>

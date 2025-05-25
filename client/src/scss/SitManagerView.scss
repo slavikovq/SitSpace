@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .sm-layout {
   display: flex;

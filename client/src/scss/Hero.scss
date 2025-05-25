@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .hero {
   height: 80vh;
@@ -38,16 +38,7 @@
   text-decoration: none;
   color: inherit;
   align-items: center;
-  transition: 0.2s ease;
-
-  &:hover {
-    transform: scale(1.05);
-    transition: 0.2s ease;
-  }
-
-  &:active {
-    transform: scale(1);
-  }
+  @include main.scale-hover-effect;
 }
 
 .GS-button {

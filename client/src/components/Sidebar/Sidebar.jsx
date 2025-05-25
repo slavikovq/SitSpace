@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../../scss/Sidebar.scss";
 import logo from "../../assets/img/logo.png";
-import Katherine from "../../assets/icons/Katherine.png";
+import userPfp from "../../../assets/img/user.png"
 import clipboard from "../../assets/icons/clipboard.svg";
 import couch from "../../assets/icons/couch.svg";
 import folder from "../../assets/icons/folder.svg";
@@ -106,7 +106,7 @@ export default function Sidebar() {
         </div>
 
         <div className="sidebar-profile">
-          <img src={Katherine} alt="profile" />
+          <img src={userPfp} alt={userPfp} />
           <div className="inicials">
             <p className="name">Katherine Andrews</p>
             <p className="email">katherine@email.com</p>

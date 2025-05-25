@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .sidebar {
   width: 300px;
@@ -33,15 +33,7 @@
 
 .logout{
   cursor: pointer;
-  transition: .2s ease;
-
-  &:hover{
-    transform: scale(1.1);
-    transition: .2s ease;
-  }
-  &:active{
-    transform: scale(1);
-  }
+  @include main.scale-hover-effect;
 }
 
 .sidebar-part img {
@@ -63,10 +55,10 @@
   border-radius: 8px;
   font-size: 1.2rem; 
   text-decoration: none;
-}
 
-.nav-item:hover {
-  background-color: variables.$hover;
+  &:hover{
+    background-color: variables.$hover;
+  }
 }
 
 .sidebar-profile {

@@ -36,3 +36,16 @@ img{
   opacity: 1;
   transform: translateY(0);
 }
+
+@mixin scale-hover-effect {
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease;
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}

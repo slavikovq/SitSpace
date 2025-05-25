@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .review-card {
   background-color: variables.$w-gray;
@@ -9,16 +9,7 @@
   height: 400px;
   text-align: center;
   padding: 20px;
-  transition: .2s ease;
-
-  &:hover{
-    transform: scale(1.05);
-    transition: .2s ease;
-  }
-
-    &:active{
-    transform: scale(1);
-  }
+  @include main.scale-hover-effect;
 }
 
 .review-card img {

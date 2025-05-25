@@ -1,5 +1,6 @@
 @use "./variables";
 @use "./fonts";
+@use "./main-style.scss" as main;
 
 .sp-card {
   background-color: variables.$w-gray;
