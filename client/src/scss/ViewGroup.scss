@@ -1,0 +1,77 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.g-body {
+  display: block;
+  padding: 24px;
+}
+
+.group-info h1 {
+  font-size: 1.1rem;
+  padding-bottom: 10px;
+}
+
+.group-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 200px;
+  line-height: 18px;
+}
+
+.group-details div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.group-details span {
+  font-weight: 600;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.button-group button {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  width: 120px;
+  border-radius: 12px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.group-edit-btn {
+  background-color: black;
+}
+
+.group-delete-btn {
+  background-color: variables.$decor-cal;
+}
+
+.group-preview h1 {
+  font-size: 1.1rem;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.group-preview table {
+  width: 30%;
+  border-collapse: collapse;
+}
+
+.group-preview th,
+.group-preview td {
+  text-align: left;
+  padding: 8px 12px;
+}
+
+.group-preview thead {
+  background-color: variables.$w-gray;
+}

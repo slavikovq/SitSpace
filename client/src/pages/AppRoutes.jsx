@@ -9,11 +9,17 @@ import SeatingPreview from "./SitManager/SeatingPreview/SeatingPreview";
 import CreateReview from "./SitManager/ManageReview/CreateReview";
 import UpdateReview from "./SitManager/ManageReview/UpdateReview";
 import Account from "./SitManager/Account/Account"
+import ViewAllGroups from "./SitManager/Groups/ViewAllGroups"
+import ViewAllClasses from "./SitManager/Classes/ViewAllClasses"
+import ViewClass from "./SitManager/Classes/ViewClass";
+import ViewGroup from "./SitManager/Groups/ViewGroup";
+
 import NotFound from "../components/NotFound/NotFound";
 import LoadingPage from "../components/LoadingPage/LoadingPage";
 import { useAuth } from "../context/AuthProvider";
 import { useReview } from "../context/ReviewProvider";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+
 
 export default function AppRoutes() {
   const { user, isLoading } = useAuth();
@@ -35,6 +41,11 @@ export default function AppRoutes() {
             <Route path="/sitManager/seatingPreview" element={<SeatingPreview/>} />
             <Route path="/sitManager/manageReview" element={hasUserReview ? <UpdateReview/> : <CreateReview/>} />
             <Route path="/sitManager/account" element={<Account/>} />
+            <Route path="/sitManager/groups" element={<ViewAllGroups/>} />
+            <Route path="/sitManager/classes" element={<ViewAllClasses/>} />
+
+            <Route path="/sitManager/groups/specific" element={<ViewGroup/>} />
+            <Route path="/sitManager/classes/specific" element={<ViewClass/>} />
           </Route>
 
           <Route path="*" element={<NotFound />}/>

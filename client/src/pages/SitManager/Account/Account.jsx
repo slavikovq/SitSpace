@@ -2,7 +2,7 @@ import "../../../scss/Account.scss";
 import SitManagerView from "../../../components/SitManagerView/SitManagerView";
 import userPfp from "../../../assets/img/user.png"
 
-export default function CreateReview() {
+export default function Account() {
   return (
     <SitManagerView headerText="My account">
       <div className="acc-container">
