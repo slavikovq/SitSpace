@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .wps-content {
   padding: 5% 5%;
@@ -39,16 +39,7 @@
   border: 2px black solid;
   text-decoration: none;
   color: inherit;
-  transition: .2s ease;
-
-  &:hover{
-    transform: scale(1.05);
-    transition: .2s ease;
-  }
-
-    &:active{
-    transform: scale(1);
-  }
+  @include main.scale-hover-effect;
 }
 
 .wps-button {

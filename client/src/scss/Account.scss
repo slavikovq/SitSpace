@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .acc-container {
   background-color: variables.$w-gray;
@@ -31,6 +31,9 @@
 .acc-pfp img {
   max-width: 150px;
   width: 100%;
+  border-radius: 50%;
+  outline: 2px solid black;
+  padding: 5px;
 }
 
 .acc-profile-btns {
@@ -52,11 +55,11 @@
 
 .remove-btn {
   background-color: transparent;
-  border: 3px solid variables.$decor-cal;
+  border: 3px solid red;
   padding: 3px;
   width: 150px;
   border-radius: 12px;
-  color: variables.$decor-cal;
+  color: red;
   font-size: 1rem;
   font-weight: bold;
 }

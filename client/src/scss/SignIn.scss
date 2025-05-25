@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .signin-content {
   display: flex;
@@ -74,14 +74,5 @@
   width: 100%;
   display: grid;
   justify-content: center;
-  transition: 0.2s ease;
-
-  &:hover {
-    transform: scale(1.05);
-    transition: 0.2s ease;
-  }
-
-  &:active {
-    transform: scale(1);
-  }
+  @include main.scale-hover-effect;
 }

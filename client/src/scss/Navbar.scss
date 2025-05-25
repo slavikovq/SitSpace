@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .navbar {
   padding: 2% 4%;
@@ -52,16 +52,7 @@
   font-weight: bold;
   text-decoration: none;
   color: inherit;
-  transition: 0.2s ease;
-
-  &:hover {
-    transform: scale(1.05);
-    transition: 0.2s ease;
-  }
-
-  &:active {
-    transform: scale(1);
-  }
+  @include main.scale-hover-effect;
 }
 
   #full{

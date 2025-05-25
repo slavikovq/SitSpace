@@ -1,6 +1,6 @@
 import "../../../scss/Account.scss";
 import SitManagerView from "../../../components/SitManagerView/SitManagerView";
-import Katherine from "../../../assets/icons/Katherine.png";
+import userPfp from "../../../assets/img/user.png"
 
 export default function Account() {
   return (
@@ -11,7 +11,7 @@ export default function Account() {
           <div className="acc-profile">
             <div className="acc-pfp">
               <h1>Profile picture</h1>
-              <img src={Katherine} alt="" />
+              <img src={userPfp} alt={userPfp}/>
             </div>
             <div className="acc-manager">
               <div className="acc-profile-btns">

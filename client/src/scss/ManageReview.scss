@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .create-review-box {
   background-color: variables.$w-gray;
@@ -49,19 +49,11 @@
         margin-top: 20px;
         padding: 10px;
         border: none;
-        transition: .2s ease;
         cursor: pointer;
         border-radius: 10px;
         font-size: 1rem;
         font-weight: 600;
-
-        &:hover{
-            transform: scale(1.05);
-            transition: .2s ease;
-        }
-        &:active{
-            transform: scale(1);
-        }
+        @include main.scale-hover-effect;
     }
 }
 .review-rating{
@@ -69,15 +61,7 @@
         cursor: pointer;
         filter: variables.$decor-filter;
         width: 40px;
-        transition: .2s ease;
-
-        &:hover{
-            transform: scale(1.1);
-            transition: .2s ease;
-        }
-        &:active{
-            transform: scale(1);
-        }
+        @include main.scale-hover-effect;
     }
     .rating-stars{
       display: flex;
@@ -97,15 +81,6 @@
     background-color: white;
     border: 2px solid red;
     color: red;
-    transition: 0.2s ease;
-
-    &:hover {
-      transform: scale(1.05);
-      transition: 0.2s ease;
-    }
-
-    &:active {
-      transform: scale(1);
-    }
+    @include main.scale-hover-effect;
   }
 }

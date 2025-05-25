@@ -1,6 +1,6 @@
 @use "./variables";
 @use "./fonts";
-@use "./main-style.scss";
+@use "./main-style.scss" as main;
 
 .footer {
   display: flex;
@@ -26,16 +26,7 @@
   display: flex;
   padding: 10px;
   border-radius: 50%;
-  transition: .2s ease;
-
-  &:hover{
-    transform: scale(1.1);
-    transition: .2s ease;
-  }
-
-    &:active{
-    transform: scale(1);
-  }
+  @include main.scale-hover-effect;
 }
 .circle {
   width: 25px;
@@ -67,9 +58,9 @@
   text-decoration: none;
   color: inherit;
   transition: .2s ease;
-}
 
-.footer ul li a:hover{
-  color: variables.$dark-decor-cal;
-  transition: .2s ease;
+  &:hover{
+    color: variables.$dark-decor-cal;
+    transition: .2s ease;
+  }
 }
