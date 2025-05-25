@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  width: 200px;
+  width: 400px;
   line-height: 18px;
 }
 
@@ -49,10 +49,14 @@
 
 .group-edit-btn {
   background-color: black;
+  cursor: pointer;
+  @include main.scale-hover-effect;
 }
 
 .group-delete-btn {
   background-color: variables.$decor-cal;
+  cursor: pointer;
+  @include main.scale-hover-effect;
 }
 
 .group-preview h1 {
@@ -62,7 +66,7 @@
 }
 
 .group-preview table {
-  width: 30%;
+  width: 400px;
   border-collapse: collapse;
 }
 
@@ -74,4 +78,31 @@
 
 .group-preview thead {
   background-color: variables.$w-gray;
+}
+
+.input-section{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 5px;
+
+  input{
+    padding: 10px;
+    border: 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: variables.$w-gray;
+
+    &#s{
+      width: 80px;
+    }
+    &#b{
+      width: 400px;
+    }
+  }
+  img{
+    width: 45px;
+    cursor: pointer;
+    @include main.scale-hover-effect;
+  }
 }

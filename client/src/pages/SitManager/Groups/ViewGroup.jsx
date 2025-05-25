@@ -1,4 +1,4 @@
-import "../../../scss/ViewGroup.scss";
+import "../../../scss/Groups.scss";
 import SitManagerView from "../../../components/SitManagerView/SitManagerView";
 import { useEffect } from "react";
 

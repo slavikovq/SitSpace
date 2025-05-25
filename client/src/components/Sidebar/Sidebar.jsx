@@ -62,29 +62,29 @@ export default function Sidebar({page}) {
           </div>
 
           <nav>
-            <Link to="/sitManager/seatingPreview" className="nav-item" id={page === "seatingPreview" ? "active" : ""}>
-              <img src={couch} alt="" />
-              Seating Preview
-            </Link>
             <Link to="/" className="nav-item" id={page === "seatingPlan" ? "active" : ""}>
+              <img src={couch} alt="" />
+              Create seating plan
+            </Link>
+            <Link to="/sitManager/seatingPreview" className="nav-item" id={page === "seatingPreview" ? "active" : ""}>
               <img src={clipboard} alt="" />
-              Seating Plan
+              Seating plans
             </Link>
             <Link to="/" className="nav-item" id={page === "createClassroom" ? "active" : ""}>
               <img src={plus} alt="" />
               Create classroom
             </Link>
-            <Link to="/" className="nav-item" id={page === "createGroup" ? "active" : ""}>
+            <Link to="/sitManager/classes" className="nav-item" id={page === "classes" ? "active" : ""}>
+              <img src={folder} alt="" />
+              Classes
+            </Link>
+            <Link to="/sitmanager/createGroup" className="nav-item" id={page === "createGroup" ? "active" : ""}>
               <img src={group} alt="" />
               Create group
             </Link>
             <Link to="/sitManager/groups" className="nav-item" id={page === "groups" ? "active" : ""}>
               <img src={folder} alt="" />
               Groups
-            </Link>
-            <Link to="/sitManager/classes" className="nav-item" id={page === "classes" ? "active" : ""}>
-              <img src={folder} alt="" />
-              Classes
             </Link>
           </nav>
         </div>

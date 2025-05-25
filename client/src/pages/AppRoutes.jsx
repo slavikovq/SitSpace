@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import { useAuth } from "../context/AuthProvider";
+import { useReview } from "../context/ReviewProvider";
 import Home from "./Home/Home";
 import SignUp from "./SignUp/SignUp";
 import SignIn from "./SignIn/SignIn";
@@ -13,12 +15,10 @@ import ViewAllGroups from "./SitManager/Groups/ViewAllGroups"
 import ViewAllClasses from "./SitManager/Classes/ViewAllClasses"
 import ViewClass from "./SitManager/Classes/ViewClass";
 import ViewGroup from "./SitManager/Groups/ViewGroup";
-
 import NotFound from "../components/NotFound/NotFound";
 import LoadingPage from "../components/LoadingPage/LoadingPage";
-import { useAuth } from "../context/AuthProvider";
-import { useReview } from "../context/ReviewProvider";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import CreateGroup from "./SitManager/Groups/CreateGroup";
 
 
 export default function AppRoutes() {
@@ -41,7 +41,10 @@ export default function AppRoutes() {
             <Route path="/sitManager/seatingPreview" element={<SeatingPreview/>} />
             <Route path="/sitManager/manageReview" element={hasUserReview ? <UpdateReview/> : <CreateReview/>} />
             <Route path="/sitManager/account" element={<Account/>} />
+
             <Route path="/sitManager/groups" element={<ViewAllGroups/>} />
+            <Route path="/sitManager/createGroup" element={<CreateGroup />} />
+
             <Route path="/sitManager/classes" element={<ViewAllClasses/>} />
 
             <Route path="/sitManager/groups/specific" element={<ViewGroup/>} />

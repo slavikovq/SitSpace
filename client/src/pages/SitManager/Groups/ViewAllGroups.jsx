@@ -1,5 +1,5 @@
 import GroupCard from "../../../components/GroupCard/GroupCard";
-import "../../../scss/SeatingPreview.scss";
+import "../../../scss/Groups.scss";
 import SitManagerView from "../../../components/SitManagerView/SitManagerView";
 import { useEffect } from "react";
 
@@ -10,7 +10,7 @@ export default function ViewAllGroups() {
 
   return (
     <SitManagerView headerText="Groups" pageNow={"groups"}>
-      <div className="sp-body">
+      <div className="g-body">
         <GroupCard />
       </div>
     </SitManagerView>

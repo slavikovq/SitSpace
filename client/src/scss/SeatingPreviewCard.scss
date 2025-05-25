@@ -27,7 +27,7 @@
 
 .sp-icons {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -37,7 +37,8 @@
 }
 
 .sp-footer img {
-  width: 30px;
+  width: 38px;
+  @include main.scale-hover-effect;
 }
 
 .details {

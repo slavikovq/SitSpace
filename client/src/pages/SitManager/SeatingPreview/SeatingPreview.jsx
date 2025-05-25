@@ -5,11 +5,11 @@ import { useEffect } from "react";
 
 export default function SeatingPreview() {
   useEffect(() => {
-    document.title = "Seating Preview • SitSpace";
+    document.title = "Seating Plans • SitSpace";
   }, []);
 
   return (
-    <SitManagerView headerText="Seating Preview" pageNow={"seatingPreview"}>
+    <SitManagerView headerText="Seating Plans" pageNow={"seatingPreview"}>
       <div className="sp-body">
         <SeatingPreviewCard />
       </div>
