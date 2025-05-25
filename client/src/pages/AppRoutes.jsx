@@ -8,6 +8,7 @@ import ViewReview from "./Reviews/ViewReview";
 import SeatingPreview from "./SitManager/SeatingPreview/SeatingPreview";
 import CreateReview from "./SitManager/ManageReview/CreateReview";
 import UpdateReview from "./SitManager/ManageReview/UpdateReview";
+import Account from "./SitManager/Account/Account"
 import NotFound from "../components/NotFound/NotFound";
 import LoadingPage from "../components/LoadingPage/LoadingPage";
 import { useAuth } from "../context/AuthProvider";
@@ -33,6 +34,7 @@ export default function AppRoutes() {
           <Route element={<ProtectedRoute />}>
             <Route path="/sitManager/seatingPreview" element={<SeatingPreview/>} />
             <Route path="/sitManager/manageReview" element={hasUserReview ? <UpdateReview/> : <CreateReview/>} />
+            <Route path="sitManager/account" element={<Account/>} />
           </Route>
 
           <Route path="*" element={<NotFound />}/>

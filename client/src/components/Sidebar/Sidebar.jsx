@@ -94,7 +94,7 @@ export default function Sidebar() {
             <span>SETTINGS</span>
           </div>
           <nav>
-            <Link to="/" className="nav-item">
+            <Link to="/sitManager/account" className="nav-item">
               <img src={userIcon} alt="" />
               Account
             </Link>
