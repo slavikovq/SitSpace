@@ -22,6 +22,7 @@ export default function UpdateReview() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "Update Review • SitSpace"
     const load = async () => {
       const res = await getUserReview();
       if (res.status === 200) {
@@ -97,7 +98,7 @@ export default function UpdateReview() {
   if (isLoading === null) return <NotFound />;
 
   return (
-    <SitManagerView headerText="Change your review">
+    <SitManagerView headerText="Change your review" pageNow={"review"}>
       <div className="sp-body">
         <div className="create-review-box">
           <div className="review-box-header">

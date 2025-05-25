@@ -1,9 +1,14 @@
 import "../../../scss/ViewGroup.scss";
 import SitManagerView from "../../../components/SitManagerView/SitManagerView";
+import { useEffect } from "react";
 
 export default function ViewGroup() {
+  useEffect(() => {
+    document.title = "Group • SitSpace";
+  }, []);
+
   return (
-    <SitManagerView headerText="Group (Group_name)">
+    <SitManagerView headerText="Group (Group_name)" pageNow={"groups"}>
       <div className="g-body">
         <div className="group-info">
           <div className="group-details">

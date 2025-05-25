@@ -1,6 +1,6 @@
 import Navbar from "../../components/Navbar/Navbar";
 import "../../scss/ViewReview.scss";
-import Katherine from "../../assets/icons/Katherine.png";
+import userPfp from "../../assets/img/user.png";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { deleteReview, getReviewById } from "../../models/review";
@@ -25,6 +25,7 @@ export default function ViewReview() {
   const navigate = useNavigate();
 
   useState(() => {
+    document.title = "Review • SitSpace";
     const load = async () => {
       const res = await getReviewById(id);
       if (res.status === 200) {
@@ -86,7 +87,7 @@ export default function ViewReview() {
         <div className="view-review-card">
           <div className="desc-box">
             <div className="person-description">
-              <img src={Katherine} alt="" id="pfp" />
+              <img src={reviewAuthor.profilePicture ? reviewAuthor.profilePicture : userPfp} alt={userPfp} id="pfp" />
               <div className="name-rating">
                 <h1>
                   {reviewAuthor.first_name} {reviewAuthor.last_name}

@@ -61,6 +61,10 @@
   }
 }
 
+#active{
+  background-color: variables.$hover;
+}
+
 .sidebar-profile {
   margin-top: auto;
   display: flex;
@@ -72,9 +76,18 @@
 }
 .inicials{
   line-height: 22px;
+
+  p{
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 .sidebar-profile img {
   width: 45px;
+  height: 45px;
+  border-radius: 50%;
 }
 
 .sidebar-profile-info {

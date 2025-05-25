@@ -29,17 +29,22 @@
 }
 
 .acc-pfp img {
-  max-width: 150px;
-  width: 100%;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   outline: 2px solid black;
-  padding: 5px;
+  padding: 2px;
 }
 
 .acc-profile-btns {
   display: flex;
   gap: 20px;
   padding-block: 20px;
+
+  button{
+    cursor: pointer;
+    @include main.scale-hover-effect;
+  }
 }
 
 .upload-btn {
@@ -103,11 +108,30 @@
   background-color: variables.$footer-gray;
 }
 
+@keyframes slideUpFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#none{
+  display: none;
+}
 .acc-btns {
   display: flex;
   justify-content: flex-end;
   gap: 20px;
   margin-top: auto;
+  animation: slideUpFadeIn 0.5s ease-out forwards;
+
+  button{
+    @include main.scale-hover-effect;
+    cursor: pointer;
+  }
 }
 
 .cancel-btn {
@@ -131,9 +155,41 @@
   font-size: 1rem;
   font-weight: bold;
 }
+.pw-btn{
+  background-color: black;
+  border: 3px solid black;
+  padding: 3px;
+  width: 200px;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  @include main.scale-hover-effect;
+  cursor: pointer;
+}
+
+.imgInfoText{
+  line-height: 25px;
+}
 
 .acc-divider {
   border: none;
   height: 2px;
   background-color: variables.$footer-gray;
+}
+
+.swal-title {
+  color: #000;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.full-width {
+  width: 26rem !important;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.custom-swal-popup {
+  width: 30rem; 
 }

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../../scss/Sidebar.scss";
 import logo from "../../assets/img/logo.png";
-import userPfp from "../../../assets/img/user.png"
+import userPfp from "../../assets/img/user.png"
 import clipboard from "../../assets/icons/clipboard.svg";
 import couch from "../../assets/icons/couch.svg";
 import folder from "../../assets/icons/folder.svg";
@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 import { alert } from "../../utils/sweetAlert";
 
-export default function Sidebar() {
+export default function Sidebar({page}) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -62,27 +62,27 @@ export default function Sidebar() {
           </div>
 
           <nav>
-            <Link to="/sitManager/seatingPreview" className="nav-item">
+            <Link to="/sitManager/seatingPreview" className="nav-item" id={page === "seatingPreview" ? "active" : ""}>
               <img src={couch} alt="" />
               Seating Preview
             </Link>
-            <Link to="/" className="nav-item">
+            <Link to="/" className="nav-item" id={page === "seatingPlan" ? "active" : ""}>
               <img src={clipboard} alt="" />
               Seating Plan
             </Link>
-            <Link to="/" className="nav-item">
+            <Link to="/" className="nav-item" id={page === "createClassroom" ? "active" : ""}>
               <img src={plus} alt="" />
               Create classroom
             </Link>
-            <Link to="/" className="nav-item">
+            <Link to="/" className="nav-item" id={page === "createGroup" ? "active" : ""}>
               <img src={group} alt="" />
               Create group
             </Link>
-            <Link to="/sitManager/groups" className="nav-item">
+            <Link to="/sitManager/groups" className="nav-item" id={page === "groups" ? "active" : ""}>
               <img src={folder} alt="" />
               Groups
             </Link>
-            <Link to="/sitManager/classes" className="nav-item">
+            <Link to="/sitManager/classes" className="nav-item" id={page === "classes" ? "active" : ""}>
               <img src={folder} alt="" />
               Classes
             </Link>
@@ -94,11 +94,11 @@ export default function Sidebar() {
             <span>SETTINGS</span>
           </div>
           <nav>
-            <Link to="/sitManager/account" className="nav-item">
+            <Link to="/sitManager/account" className="nav-item" id={page === "account" ? "active" : ""}>
               <img src={userIcon} alt="" />
               Account
             </Link>
-            <Link to="/sitManager/manageReview" className="nav-item">
+            <Link to="/sitManager/manageReview" className="nav-item" id={page === "review" ? "active" : ""}>
               <img src={star} alt="" />
               Write a review
             </Link>
@@ -106,10 +106,10 @@ export default function Sidebar() {
         </div>
 
         <div className="sidebar-profile">
-          <img src={userPfp} alt={userPfp} />
+          <img src={user.profilePicture ? user.profilePicture : userPfp} alt={userPfp} />
           <div className="inicials">
-            <p className="name">Katherine Andrews</p>
-            <p className="email">katherine@email.com</p>
+            <p className="name">{user.first_name} {user.last_name}</p>
+            <p className="email">{user.email}</p>
           </div>
           <img src={logoutIcon} alt="" className="logout" onClick={logoutConfirm}/>
         </div>

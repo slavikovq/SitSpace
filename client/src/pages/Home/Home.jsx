@@ -1,5 +1,5 @@
 import "../../scss/Home.scss";
-
+import { useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Hero from "../../components/Hero/Hero";
 import AboutUs from "../../components/AboutUs/AboutUs";
@@ -9,6 +9,10 @@ import Footer from "../../components/Footer/Footer";
 import ScrollReveal from "../../components/ScrollMotion/ScrollMotion";
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "SitSpace";
+  }, []);
+
   return (
     <>
       <div className="home">

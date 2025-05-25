@@ -84,3 +84,57 @@ export const getUserById = async (id) => {
     payload: data.payload,
   };
 };
+
+export const updateUser = async (formData) => {
+  const token = localStorage.getItem("token");
+
+  if (!token) return null;
+
+  console.log(formData)
+
+  const form = new FormData();
+  for(const key in formData){
+    if(formData[key] !== undefined && formData[key] !== null) form.append(key, formData[key]);
+  }
+
+  console.log(form)
+
+  const req = await fetch(`http://localhost:3000/user/update`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/json"
+    },
+    method: "PUT",
+    body: form,
+  });
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    message: data.message,
+    payload: data.payload,
+  };
+};
+
+export const verifyUserPassword = async (password) => {
+  const token = localStorage.getItem("token");
+
+  if (!token) return null;
+
+  const req = await fetch("http://localhost:3000/user/verifyPassword", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({ password: password }),
+  });
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    message: data.message,
+    payload: data.payload,
+  };
+};
