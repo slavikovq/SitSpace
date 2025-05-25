@@ -6,6 +6,7 @@ const userSchema = mongoose.Schema({
     email: { type: String, unique: true, required: true, match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/ },
     password: { type: String, required: true},
     profilePicture: { type: String, default: null},
+    cloudinaryId: { type: String, default: null},
     date_created: { type: Date, default: Date.now}
 })
 

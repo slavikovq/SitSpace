@@ -1,9 +1,9 @@
 const User = require("../models/user");
 const path = require("path");
 const fs = require("fs");
+const cloudinary = require("cloudinary");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const user = require("../models/user");
 
 exports.login = async (req, res) => {
   try {
@@ -87,6 +87,55 @@ exports.getUserById = async (req, res) => {
 
     res.status(200).send({
       message: "User found",
+      payload: user,
+    });
+  } catch (err) {
+    res.status(500).json({ erorr: err.message });
+  }
+};
+
+exports.updateUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.userId);
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    let profilePicture = user.profilePicture;
+    let cloudinaryId = user.cloudinaryId;
+
+    if (req.body.removeProfilePicture) {
+      if (user.cloudinaryId) {
+        await cloudinary.uploader.destroy(user.cloudinaryId);
+        profilePicture = null;
+        cloudinaryId = null;
+      }
+    } else {
+      if (req.file) {
+        if (user.cloudinaryId) {
+          await cloudinary.uploader.destroy(user.cloudinaryId);
+        }
+
+        const buffer = req.file.buffer;
+        const base64 = buffer.toString("base64");
+        const dataUri = "data:" + req.file.mimetype + ";base64," + base64;
+
+        const result = await cloudinary.uploader.upload(dataUri, {
+          folder: "profile_pictures",
+        });
+        profilePicture = result.secure_url;
+        cloudinaryId = result.public_id;
+      }
+    }
+
+    user.first_name = req.body.first_name || user.first_name;
+    user.last_name = req.body.last_name || user.last_name;
+    user.email = req.body.email || user.email;
+    user.profilePicture = profilePicture;
+    user.cloudinaryId = cloudinaryId;
+
+    await user.save();
+
+    res.status(200).json({
+      message: "User updated",
       payload: user,
     });
   } catch (err) {
