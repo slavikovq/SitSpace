@@ -1,0 +1,136 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.acc-container {
+  background-color: variables.$w-gray;
+  height: 100%;
+  margin: 2%;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.acc-content {
+  width: 100%;
+  height: 100%;
+}
+
+.acc-profile {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  height: 30%;
+}
+
+.acc-manager {
+  padding: 20px;
+}
+
+.acc-pfp img {
+  max-width: 150px;
+  width: 100%;
+}
+
+.acc-profile-btns {
+  display: flex;
+  gap: 20px;
+  padding-block: 20px;
+}
+
+.upload-btn {
+  background-color: transparent;
+  border: 3px solid black;
+  padding: 3px;
+  width: 150px;
+  border-radius: 12px;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.remove-btn {
+  background-color: transparent;
+  border: 3px solid variables.$decor-cal;
+  padding: 3px;
+  width: 150px;
+  border-radius: 12px;
+  color: variables.$decor-cal;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.acc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 70%;
+}
+
+.acc-personal,
+.acc-password {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin-block: 30px;
+}
+
+.acc-form-containers {
+  display: flex;
+  width: 70%;
+  gap: 5%;
+}
+
+.acc-pfp h1,
+.acc-personal h1,
+.acc-password h1 {
+  line-height: 1rem;
+  font-size: 1.2rem;
+  padding-block: 10px;
+}
+
+.acc-personal input,
+.acc-password input {
+  padding: 10px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: variables.$footer-gray;
+}
+
+.acc-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: auto;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  border: 3px solid black;
+  padding: 3px;
+  width: 150px;
+  border-radius: 12px;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.save-btn {
+  background-color: black;
+  border: 3px solid black;
+  padding: 3px;
+  width: 150px;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.acc-divider {
+  border: none;
+  height: 2px;
+  background-color: variables.$footer-gray;
+}
