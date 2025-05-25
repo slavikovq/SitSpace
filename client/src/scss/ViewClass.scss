@@ -1,0 +1,76 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.c-body {
+  display: block;
+  padding: 24px;
+}
+
+.class-info h1{
+    font-size: 1.1rem;
+    padding-bottom: 10px;
+}
+
+.class-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 200px;
+  line-height: 18px;
+}
+
+.class-details div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.class-details span {
+  font-weight: 600;
+}
+
+.button-class {
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.button-class button {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  width: 120px;
+  border-radius: 12px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.class-edit-btn {
+  background-color: black;
+}
+
+.class-delete-btn {
+  background-color: variables.$decor-cal;
+}
+
+.class-preview h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.class-preview table {
+  width: 30%;
+  border-collapse: collapse;
+}
+
+.class-preview th,
+.class-preview td {
+  text-align: left;
+  padding: 8px 12px;
+}
+
+.class-preview thead {
+  background-color: variables.$w-gray;
+}

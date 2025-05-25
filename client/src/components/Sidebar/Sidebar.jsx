@@ -78,11 +78,11 @@ export default function Sidebar() {
               <img src={group} alt="" />
               Create group
             </Link>
-            <Link to="/" className="nav-item">
+            <Link to="/sitManager/groups" className="nav-item">
               <img src={folder} alt="" />
               Groups
             </Link>
-            <Link to="/" className="nav-item">
+            <Link to="/sitManager/classes" className="nav-item">
               <img src={folder} alt="" />
               Classes
             </Link>
