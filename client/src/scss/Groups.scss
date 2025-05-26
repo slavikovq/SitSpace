@@ -3,8 +3,22 @@
 @use "./main-style.scss" as main;
 
 .g-body {
-  display: block;
+  overflow: auto;
   padding: 24px;
+  display: block;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.g-header{
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#flex{
+  display: flex;
 }
 
 .group-info h1 {
@@ -40,7 +54,7 @@
   padding: 8px 16px;
   border: none;
   cursor: pointer;
-  width: 120px;
+  width: 130px;
   border-radius: 12px;
   color: white;
   font-size: 0.9rem;
@@ -105,4 +119,10 @@
     cursor: pointer;
     @include main.scale-hover-effect;
   }
+}
+#noerr{
+  text-align: center;
+  margin-top: 40vh;
+  color: #aaa;
+  font-size: 1.1rem;
 }

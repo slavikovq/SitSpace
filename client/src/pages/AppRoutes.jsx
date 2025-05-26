@@ -19,6 +19,7 @@ import NotFound from "../components/NotFound/NotFound";
 import LoadingPage from "../components/LoadingPage/LoadingPage";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import CreateGroup from "./SitManager/Groups/CreateGroup";
+import UpdateGroup from "./SitManager/Groups/UpdateGroup";
 
 
 export default function AppRoutes() {
@@ -42,12 +43,12 @@ export default function AppRoutes() {
             <Route path="/sitManager/manageReview" element={hasUserReview ? <UpdateReview/> : <CreateReview/>} />
             <Route path="/sitManager/account" element={<Account/>} />
 
+            <Route path="/sitManager/group/:id" element={<ViewGroup/>} />
             <Route path="/sitManager/groups" element={<ViewAllGroups/>} />
             <Route path="/sitManager/createGroup" element={<CreateGroup />} />
+            <Route path="/sitManager/updateGroup/:id" element={<UpdateGroup />} />
 
             <Route path="/sitManager/classes" element={<ViewAllClasses/>} />
-
-            <Route path="/sitManager/groups/specific" element={<ViewGroup/>} />
             <Route path="/sitManager/classes/specific" element={<ViewClass/>} />
           </Route>
 
