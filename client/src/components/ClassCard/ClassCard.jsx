@@ -19,7 +19,7 @@ export default function ClassCard() {
         </div>
         <div className="c-footer">
           <div className="c-icons">
-            <Link to={"/"}>
+            <Link to={"/sitManager/updateClassroom"}>
               <img src={pencil} alt="edit" />
             </Link>
             <Link to={"/"}>

@@ -22,6 +22,9 @@ import UpdateGroup from "./SitManager/Groups/UpdateGroup";
 import ViewSeatingPlan from "./SitManager/ManageSeating/ViewSeatingPlan";
 import SeatingPlans from "./SitManager/ManageSeating/SeatingPlans";
 import CreateSeatingPlan from "./SitManager/ManageSeating/CreateSeatingPlan";
+import CreateClassroom from "./SitManager/Classes/CreateClassroom";
+import UpdateClassroom from "./SitManager/Classes/UpdateClassroom";
+import UpdateSeatingPlan from "./SitManager/ManageSeating/UpdateSeatingPlan";
 
 export default function AppRoutes() {
   const { user, isLoading } = useAuth();
@@ -42,7 +45,10 @@ export default function AppRoutes() {
           <Route element={<ProtectedRoute />}>
             <Route path="/sitManager/createPlan" element={<CreateSeatingPlan/>} />
             <Route path="/sitManager/seatingPlans" element={<SeatingPlans/>} />
+            <Route path="/sitManager/updateClassroom" element={<UpdateClassroom/>} />
+
             <Route path="/sitManager/seatingPlan/:id" element={<ViewSeatingPlan/>} />
+            <Route path="/sitManager/updateSeatingPlan" element={<UpdateSeatingPlan/>} />
 
             <Route path="/sitManager/manageReview" element={hasUserReview ? <UpdateReview/> : <CreateReview/>} />
             <Route path="/sitManager/account" element={<Account/>} />
@@ -53,6 +59,7 @@ export default function AppRoutes() {
             <Route path="/sitManager/updateGroup/:id" element={<UpdateGroup />} />
 
             <Route path="/sitManager/classes" element={<ViewAllClasses/>} />
+            <Route path="/sitManager/createClassroom" element={<CreateClassroom/>} />
             <Route path="/sitManager/classes/specific" element={<ViewClass/>} />
 
           </Route>
