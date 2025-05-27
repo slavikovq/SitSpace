@@ -62,11 +62,11 @@ export default function Sidebar({page}) {
           </div>
 
           <nav>
-            <Link to="/" className="nav-item" id={page === "seatingPlan" ? "active" : ""}>
+            <Link to="/sitManager/createPlan" className="nav-item" id={page === "createPlan" ? "active" : ""}>
               <img src={couch} alt="" />
               Create seating plan
             </Link>
-            <Link to="/sitManager/seatingPreview" className="nav-item" id={page === "seatingPreview" ? "active" : ""}>
+            <Link to="/sitManager/seatingPlans" className="nav-item" id={page === "seatingPlans" ? "active" : ""}>
               <img src={clipboard} alt="" />
               Seating plans
             </Link>

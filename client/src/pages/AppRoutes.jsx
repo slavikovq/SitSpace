@@ -7,7 +7,6 @@ import SignUp from "./SignUp/SignUp";
 import SignIn from "./SignIn/SignIn";
 import Reviews from "./Reviews/Reviews";
 import ViewReview from "./Reviews/ViewReview";
-import SeatingPreview from "./SitManager/SeatingPreview/SeatingPreview";
 import CreateReview from "./SitManager/ManageReview/CreateReview";
 import UpdateReview from "./SitManager/ManageReview/UpdateReview";
 import Account from "./SitManager/Account/Account"
@@ -20,6 +19,9 @@ import LoadingPage from "../components/LoadingPage/LoadingPage";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import CreateGroup from "./SitManager/Groups/CreateGroup";
 import UpdateGroup from "./SitManager/Groups/UpdateGroup";
+import ViewSeatingPlan from "./SitManager/ManageSeating/ViewSeatingPlan";
+import SeatingPlans from "./SitManager/ManageSeating/SeatingPlans";
+import CreateSeatingPlan from "./SitManager/ManageSeating/CreateSeatingPlan";
 
 export default function AppRoutes() {
   const { user, isLoading } = useAuth();
@@ -38,7 +40,10 @@ export default function AppRoutes() {
           <Route path="/review/:id" element={<ViewReview/>} />
 
           <Route element={<ProtectedRoute />}>
-            <Route path="/sitManager/seatingPreview" element={<SeatingPreview/>} />
+            <Route path="/sitManager/createPlan" element={<CreateSeatingPlan/>} />
+            <Route path="/sitManager/seatingPlans" element={<SeatingPlans/>} />
+            <Route path="/sitManager/seatingPlan/:id" element={<ViewSeatingPlan/>} />
+
             <Route path="/sitManager/manageReview" element={hasUserReview ? <UpdateReview/> : <CreateReview/>} />
             <Route path="/sitManager/account" element={<Account/>} />
 
