@@ -49,10 +49,12 @@
 
 .class-edit-btn {
   background-color: black;
+  @include main.scale-hover-effect;
 }
 
 .class-delete-btn {
   background-color: variables.$decor-cal;
+  @include main.scale-hover-effect;
 }
 
 .cc-fRow{
@@ -63,6 +65,7 @@
 
 .cc-body{
   padding: 24px;
+  overflow-y: auto;
 }
 
 .cc-fRow h1{
@@ -83,44 +86,141 @@
 }
 
 .cc-add-btn{
-  width: 100%;
+  width: 300px;
   border: 0;
   background-color: black;
   color: white;
   border-radius: 12px;
   margin-top: 10px;
   font-size: 1rem;
-}
+  transition: .2s ease;
+  cursor: pointer;
 
-.cc-buttons{
+  &:hover{
+    transform: scale(1.03);
+    transition: .2s ease;
+  }
+  &:active{
+    transform: scale(1);
+  }
+}
+.cc-btn{
+  display: grid;
+  justify-content: center;
+}
+.rows-input{
   display: flex;
   gap: 20px;
-  width: 80%;
+  margin: 20px 0;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  input{
+    width: 280px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+}
+.cc-buttons{
+  display: flex;
+  gap: 15px;
+  padding-top: 20px;
+
+  button{
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    border-radius: 12px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
 }
 
 #cc-cc-btn{
-  width: 60%;
-  border: 0;
   background-color: black;
-  color: white;
-  padding: 10px;
-  border-radius: 12px;
-  margin-top: 10px;
-  font-size: 1rem;
+  cursor: pointer;
+  @include main.scale-hover-effect;
 }
 
 #cc-cancel-btn{
-  width: 40%;
-  border: 0;
   background-color: variables.$decor-cal;
-  color: white;
-  padding: 10px;
-  border-radius: 12px;
-  margin-top: 10px;
-  font-size: 1rem;
+  cursor: pointer;
+  @include main.scale-hover-effect;
+}
+
+.cc-view{
+  padding-top: 30px;
+  border-top: 1px solid #d3d3d3;
 }
 
 .cc-view h1{
   display: flex;
   justify-content: center;
+}
+
+.cc-table{
+  margin-top: 20px;
+  overflow-x: auto;
+
+  table{
+    margin: 0 auto;
+    border-spacing: 20px;
+    border-collapse: separate;
+  }
+}
+.cc-table-td{
+  width: 280px;
+  height: 100px;
+  min-width: 280px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.cc-table-select{
+  width: 110px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #c9c9c9;
+  border: none;
+}
+
+.classroom-preview {
+  margin-top: 2rem;
+}
+
+#cp-header{
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #d3d3d3;
+}
+
+.layout-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.desk {
+  background-color: #ebebeb;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  min-width: 80px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.seat {
+  background-color: transparent;
+  color: black;
+  font-weight: 500;
+}
+
+.seats-inside{
+  display: flex;
+  justify-content: space-around;
 }

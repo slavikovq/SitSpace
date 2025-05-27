@@ -33,10 +33,17 @@
   justify-content: right;
   display: grid;
   align-items: center ;
+
+  img{
+    margin-right: 10px;
+    filter: variables.$white-filter;
+    cursor: pointer;
+  }
 }
 
 .sidebar-header {
   margin-top: 15px;
+  padding-bottom: 20px;
   display: flex;
   align-items: center;
 }
@@ -168,6 +175,7 @@
 
 #x{
   width: 24px;
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -181,6 +189,10 @@
 
   .sidebar.active {
     left: 0;
+  }
+
+  #x{
+    display: grid;
   }
 }
 

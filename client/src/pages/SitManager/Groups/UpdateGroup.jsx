@@ -97,7 +97,7 @@ export default function UpdateGroup() {
   return (
     <SitManagerView
       headerText="Update group (group_name)"
-      pageNow={"createGroup"}
+      pageNow={"groups"}
     >
       <div className="g-body">
         <div className="group-info">

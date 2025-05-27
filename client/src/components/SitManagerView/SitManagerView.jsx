@@ -17,14 +17,14 @@ export default function SitManagerView({children, headerText, pageNow}){
     return(
         <>
             <div className="sm-layout">
-              <Sidebar page={pageNow} activeSidebar={activeSidebar}/>
+              <Sidebar page={pageNow} activeSidebar={activeSidebar} showSidebar={showSidebar}/>
               <div className="sm-content">
                 <div className="sm-title">
                   <div className="sm-title-main">
                     	<h1>{headerText}</h1>
                   </div>
                   <div className="sm-bars">
-                    <img src={bars} alt="Bars" onClick={showSidebar}/>
+                    {!activeSidebar && (<img src={bars} alt="Bars" onClick={showSidebar}/>)}
                   </div>
                 </div>
                 {children}

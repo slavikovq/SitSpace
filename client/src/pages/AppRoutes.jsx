@@ -58,10 +58,10 @@ export default function AppRoutes() {
             <Route path="/sitManager/createGroup" element={<CreateGroup />} />
             <Route path="/sitManager/updateGroup/:id" element={<UpdateGroup />} />
 
+            <Route path="/sitManager/class/:id" element={<ViewClass/>} />
             <Route path="/sitManager/classes" element={<ViewAllClasses/>} />
             <Route path="/sitManager/createClassroom" element={<CreateClassroom/>} />
-            <Route path="/sitManager/classes/specific" element={<ViewClass/>} />
-
+            <Route path="/sitManager/updateClassroom/:id" element={<UpdateClassroom/>} />
           </Route>
 
           <Route path="*" element={<NotFound />}/>

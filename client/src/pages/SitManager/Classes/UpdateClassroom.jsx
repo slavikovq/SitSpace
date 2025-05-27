@@ -8,7 +8,7 @@ export default function UpdateClassroom() {
   }, []);
 
   return (
-    <SitManagerView headerText="Update Classroom" pageNow={"createClassroom"}>
+    <SitManagerView headerText="Update Classroom" pageNow={"classes"}>
       <div className="cc-body">
         <div className="cc-fRow">
           <div>
