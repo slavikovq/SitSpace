@@ -21,7 +21,6 @@ import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import CreateGroup from "./SitManager/Groups/CreateGroup";
 import UpdateGroup from "./SitManager/Groups/UpdateGroup";
 
-
 export default function AppRoutes() {
   const { user, isLoading } = useAuth();
   const { hasUserReview, isChecking } = useReview();
@@ -50,6 +49,7 @@ export default function AppRoutes() {
 
             <Route path="/sitManager/classes" element={<ViewAllClasses/>} />
             <Route path="/sitManager/classes/specific" element={<ViewClass/>} />
+
           </Route>
 
           <Route path="*" element={<NotFound />}/>
