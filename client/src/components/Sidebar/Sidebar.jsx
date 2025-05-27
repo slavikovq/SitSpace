@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../../scss/Sidebar.scss";
 import logo from "../../assets/img/logo.png";
-import userPfp from "../../assets/img/user.png"
+import userPfp from "../../assets/img/user.png";
 import clipboard from "../../assets/icons/clipboard.svg";
 import couch from "../../assets/icons/couch.svg";
 import folder from "../../assets/icons/folder.svg";
@@ -11,13 +11,14 @@ import plus from "../../assets/icons/plus.svg";
 import star from "../../assets/icons/star.svg";
 import userIcon from "../../assets/icons/user.svg";
 import house from "../../assets/icons/house.svg";
+import xmark from "../../assets/icons/xmark.svg"
 
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 import { alert } from "../../utils/sweetAlert";
 
-export default function Sidebar({page}) {
+export default function Sidebar({ page, activeSidebar }) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -45,73 +46,122 @@ export default function Sidebar({page}) {
 
   return (
     <>
-      <div className="sidebar">
+      <div className={`sidebar ${activeSidebar ? "active" : ""}`}>
         <div className="sidebar-header">
-          <img src={logo} alt="" className="sidebar-logo" />
+          <div className="sh-left">
+            <img src={logo} alt="" className="sidebar-logo" />
+          </div>
+          <div className="sh-right">
+            <img src={xmark} alt="" id="x" />
+          </div>
         </div>
 
-        <div className="sidebar-part">
-          <nav>
-            <Link to="/" className="nav-item">
-              <img src={house} alt="" />
-              Home
-            </Link>
-          </nav>
-          <div className="section-divider">
-            <span>SEATING</span>
+        <div className="sidebar-parts">
+          <div className="sidebar-part">
+            <nav>
+              <Link to="/" className="nav-item">
+                <img src={house} alt="" />
+                Home
+              </Link>
+            </nav>
+            <div className="section-divider">
+              <span>SEATING</span>
+            </div>
+
+            <nav>
+              <Link
+                to="/sitManager/createPlan"
+                className="nav-item"
+                id={page === "createPlan" ? "active" : ""}
+              >
+                <img src={couch} alt="" />
+                Create seating plan
+              </Link>
+              <Link
+                to="/sitManager/seatingPlans"
+                className="nav-item"
+                id={page === "seatingPlans" ? "active" : ""}
+              >
+                <img src={clipboard} alt="" />
+                Seating plans
+              </Link>
+              <Link
+                to="/"
+                className="nav-item"
+                id={page === "createClassroom" ? "active" : ""}
+              >
+                <img src={plus} alt="" />
+                Create classroom
+              </Link>
+              <Link
+                to="/sitManager/classes"
+                className="nav-item"
+                id={page === "classes" ? "active" : ""}
+              >
+                <img src={folder} alt="" />
+                Classes
+              </Link>
+              <Link
+                to="/sitmanager/createGroup"
+                className="nav-item"
+                id={page === "createGroup" ? "active" : ""}
+              >
+                <img src={group} alt="" />
+                Create group
+              </Link>
+              <Link
+                to="/sitManager/groups"
+                className="nav-item"
+                id={page === "groups" ? "active" : ""}
+              >
+                <img src={folder} alt="" />
+                Groups
+              </Link>
+            </nav>
           </div>
 
-          <nav>
-            <Link to="/sitManager/createPlan" className="nav-item" id={page === "createPlan" ? "active" : ""}>
-              <img src={couch} alt="" />
-              Create seating plan
-            </Link>
-            <Link to="/sitManager/seatingPlans" className="nav-item" id={page === "seatingPlans" ? "active" : ""}>
-              <img src={clipboard} alt="" />
-              Seating plans
-            </Link>
-            <Link to="/" className="nav-item" id={page === "createClassroom" ? "active" : ""}>
-              <img src={plus} alt="" />
-              Create classroom
-            </Link>
-            <Link to="/sitManager/classes" className="nav-item" id={page === "classes" ? "active" : ""}>
-              <img src={folder} alt="" />
-              Classes
-            </Link>
-            <Link to="/sitmanager/createGroup" className="nav-item" id={page === "createGroup" ? "active" : ""}>
-              <img src={group} alt="" />
-              Create group
-            </Link>
-            <Link to="/sitManager/groups" className="nav-item" id={page === "groups" ? "active" : ""}>
-              <img src={folder} alt="" />
-              Groups
-            </Link>
-          </nav>
-        </div>
-
-        <div className="sidebar-part">
-          <div className="section-divider">
-            <span>SETTINGS</span>
+          <div className="sidebar-part">
+            <div className="section-divider">
+              <span>SETTINGS</span>
+            </div>
+            <nav>
+              <Link
+                to="/sitManager/account"
+                className="nav-item"
+                id={page === "account" ? "active" : ""}
+              >
+                <img src={userIcon} alt="" />
+                Account
+              </Link>
+              <Link
+                to="/sitManager/manageReview"
+                className="nav-item"
+                id={page === "review" ? "active" : ""}
+              >
+                <img src={star} alt="" />
+                Write a review
+              </Link>
+            </nav>
           </div>
-          <nav>
-            <Link to="/sitManager/account" className="nav-item" id={page === "account" ? "active" : ""}>
-              <img src={userIcon} alt="" />
-              Account
-            </Link>
-            <Link to="/sitManager/manageReview" className="nav-item" id={page === "review" ? "active" : ""}>
-              <img src={star} alt="" />
-              Write a review
-            </Link>
-          </nav>
         </div>
 
         <div className="sidebar-profile">
-          <img src={user.profilePicture ? user.profilePicture : userPfp} alt={userPfp} />
+          <img
+            src={user.profilePicture ? user.profilePicture : userPfp}
+            alt={userPfp}
+          />
           <div className="inicials">
-            <p className="name">{user.first_name} {user.last_name}</p>
+            <p className="name">
+              {user.first_name} {user.last_name}
+            </p>
             <p className="email">{user.email}</p>
           </div>
-          <img src={logoutIcon} alt="" className="logout" onClick={logoutConfirm}/>
+          <img
+            src={logoutIcon}
+            alt=""
+            className="logout"
+            onClick={logoutConfirm}
+          />
         </div>
       </div>
     </>

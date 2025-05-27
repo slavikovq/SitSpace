@@ -3,6 +3,7 @@
 @use "./main-style.scss" as main;
 
 .sidebar {
+  position: relative;
   width: 300px;
   height: 100vh;
   background-color: variables.$sidebar;
@@ -13,6 +14,7 @@
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   box-shadow: 5px 3px 5px -2px rgba(0, 0, 0, 0.3);
+  transition: .3s ease;
 }
 
 .sidebar-logo {
@@ -21,17 +23,47 @@
   filter: variables.$white-filter;
 }
 
-.sidebar-header{
-  margin-top: 15px;
+.sh-left{
+  width: 50%;
+  display: grid;
+  align-items: center;
+}
+.sh-right{
+  width: 50%;
+  justify-content: right;
+  display: grid;
+  align-items: center ;
 }
 
+.sidebar-header {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+.sidebar-parts {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    padding-left: 10px;
+    width: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+    padding-left: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    padding-left: 10px;
+    border-radius: 5px;
+    background-color: variables.$hover;
+  }
+}
 .sidebar-part nav {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
-.logout{
+.logout {
   cursor: pointer;
   @include main.scale-hover-effect;
 }
@@ -45,23 +77,23 @@
 
 .nav-item {
   display: flex;
-  gap: .75rem;
+  gap: 0.75rem;
   align-items: center;
-  padding: .5rem .75rem;
+  padding: 0.5rem 0.75rem;
   background: none;
   border: none;
   color: white;
   cursor: pointer;
   border-radius: 8px;
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
   text-decoration: none;
 
-  &:hover{
+  &:hover {
     background-color: variables.$hover;
   }
 }
 
-#active{
+#active {
   background-color: variables.$hover;
 }
 
@@ -69,15 +101,15 @@
   margin-top: auto;
   display: flex;
   align-items: center;
-  gap: .75rem;
+  gap: 0.75rem;
   padding-top: 1rem;
   border-top: 1px solid variables.$hover;
   margin-bottom: 5px;
 }
-.inicials{
+.inicials {
   line-height: 22px;
 
-  p{
+  p {
     max-width: 160px;
     white-space: nowrap;
     overflow: hidden;
@@ -108,9 +140,9 @@
   font-size: 1rem;
 }
 
-.email{
+.email {
   color: #ccc;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 /* LINE */
@@ -133,3 +165,22 @@
   height: 1px;
   background-color: variables.$decor-cal;
 }
+
+#x{
+  width: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+}
+

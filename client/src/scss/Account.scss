@@ -21,7 +21,8 @@
   display: flex;
   gap: 40px;
   width: 100%;
-  height: 30%;
+  padding: 3px;
+  height: 210px;
 }
 
 .acc-manager {
@@ -106,6 +107,7 @@
   border-radius: 8px;
   font-size: 1rem;
   background-color: variables.$footer-gray;
+  min-width: 400px;
 }
 
 @keyframes slideUpFadeIn {
@@ -193,3 +195,34 @@
 .custom-swal-popup {
   width: 30rem; 
 }
+
+@media screen and (max-width: 990px) {
+  .acc-form-containers{
+    display: block;
+  }
+  .acc-container{
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (max-width: 895px) {
+  .acc-manager{
+    padding: 0 0 20px 0;
+  }
+  .acc-profile{
+    display: block;
+    height: auto;
+  }
+}
+@media screen and (max-width: 455px) {
+  .acc-personal input, .acc-password input{
+    width: 290px;
+    min-width: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .acc-container{
+    margin-top: 30px;
+  } 
+  }
