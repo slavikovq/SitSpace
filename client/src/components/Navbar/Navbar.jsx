@@ -29,7 +29,7 @@ export default function Navbar() {
         </div>
 
         <div>
-          {user ? <Link to={"/sitManager/seatingPreview"} className="start-button" id="full"> Sit Manager</Link> : <Link to={"/SignIn"} className="start-button"> Sign in now</Link>}
+          {user ? <Link to={"/sitManager/seatingPlans"} className="start-button" id="full"> Sit Manager</Link> : <Link to={"/SignIn"} className="start-button"> Sign in now</Link>}
         </div>
       </nav>
     </>
