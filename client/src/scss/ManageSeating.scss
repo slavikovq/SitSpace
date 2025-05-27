@@ -8,3 +8,31 @@
   flex-wrap: wrap;
   gap: 25px;
 }
+
+.scp-card {
+  width: 500px;
+}
+
+
+.scp-details div{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  padding: 3px;
+  font-size: 1.1rem;
+}
+
+.scp-details div span{
+  font-weight: bold;
+}
+
+
+.scp-card select {
+  width: 100%;
+  background-color: variables.$w-gray;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 0;
+}
+

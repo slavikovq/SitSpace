@@ -22,7 +22,7 @@ export default function SeatingPreviewCard() {
         </div>
         <div className="sp-footer">
           <div className="sp-icons">
-            <Link to={"/"}>
+            <Link to={"/sitManager/updateSeatingPlan"}>
               <img src={pencil} alt="edit" />
             </Link>
             <Link to={"/"}>

@@ -2,13 +2,13 @@ import "../../../scss/ManageSeating.scss";
 import SitManagerView from "../../../components/SitManagerView/SitManagerView";
 import { useEffect } from "react";
 
-export default function CreateSeatingPlan() {
+export default function UpdateSeatingPlan() {
   useEffect(() => {
-    document.title = "Create seating plan • SitSpace";
+    document.title = "Update Seating Plan • SitSpace";
   }, []);
 
   return (
-    <SitManagerView headerText="Create seating plan" pageNow={"createPlan"}>
+    <SitManagerView headerText="Update Seating Plan" pageNow={"createPlan"}>
       <div className="sp-body">
         <div className="scp-card">
           <h3>Group information</h3>

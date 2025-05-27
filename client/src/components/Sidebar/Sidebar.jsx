@@ -70,7 +70,7 @@ export default function Sidebar({page}) {
               <img src={clipboard} alt="" />
               Seating plans
             </Link>
-            <Link to="/" className="nav-item" id={page === "createClassroom" ? "active" : ""}>
+            <Link to="/sitManager/createClassroom" className="nav-item" id={page === "createClassroom" ? "active" : ""}>
               <img src={plus} alt="" />
               Create classroom
             </Link>

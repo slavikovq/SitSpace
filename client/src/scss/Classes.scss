@@ -54,3 +54,73 @@
 .class-delete-btn {
   background-color: variables.$decor-cal;
 }
+
+.cc-fRow{
+  display: flex;
+  gap: 10%;
+  padding-bottom: 5%;
+}
+
+.cc-body{
+  padding: 24px;
+}
+
+.cc-fRow h1{
+  font-size: 1.1rem;
+}
+
+.cc-body input{
+  width: 400px;
+  background-color: variables.$w-gray;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 0;
+}
+
+.cc-sRow{
+  display: flex;
+}
+
+.cc-add-btn{
+  width: 100%;
+  border: 0;
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.cc-buttons{
+  display: flex;
+  gap: 20px;
+  width: 80%;
+}
+
+#cc-cc-btn{
+  width: 60%;
+  border: 0;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 12px;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+#cc-cancel-btn{
+  width: 40%;
+  border: 0;
+  background-color: variables.$decor-cal;
+  color: white;
+  padding: 10px;
+  border-radius: 12px;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.cc-view h1{
+  display: flex;
+  justify-content: center;
+}
