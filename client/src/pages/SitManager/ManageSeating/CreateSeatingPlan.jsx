@@ -1,17 +1,16 @@
-import ClassCard from "../../../components/ClassCard/ClassCard";
 import "../../../scss/ManageSeating.scss";
 import SitManagerView from "../../../components/SitManagerView/SitManagerView";
 import { useEffect } from "react";
 
-export default function ViewAllClasses() {
+export default function CreateSeatingPlan() {
   useEffect(() => {
-    document.title = "Classes • SitSpace";
+    document.title = "Create seating plan • SitSpace";
   }, []);
 
   return (
-    <SitManagerView headerText="Classes" pageNow={"classes"}>
+    <SitManagerView headerText="Create seating plan" pageNow={"createPlan"}>
       <div className="sp-body">
-        <ClassCard />
+
       </div>
     </SitManagerView>
   );
