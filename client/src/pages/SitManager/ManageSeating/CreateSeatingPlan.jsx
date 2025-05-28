@@ -5,14 +5,19 @@ import { getAllUserGroups } from "../../../models/group";
 import { getAllUserClasses } from "../../../models/class";
 import LoadingPage from "../../../components/LoadingPage/LoadingPage";
 import NotFound from "../../../components/NotFound/NotFound";
+import { alert } from "../../../utils/sweetAlert";
+import { createPlan } from "../../../models/plan";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateSeatingPlan() {
   const [groups, setGroups] = useState();
   const [classrooms, setClassrooms] = useState();
-
   const [selectedGroup, setSelectedGroup] = useState();
   const [selectedClass, setSelectedClass] = useState();
+  const [assignedSeats, setAssignedSeats] = useState({});
+  const [availableStudents, setAvailableStudents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = "Create seating plan • SitSpace";
@@ -34,15 +39,108 @@ export default function CreateSeatingPlan() {
     load();
   }, []);
 
+  useEffect(() => {
+    if (selectedClass) {
+      const assigned = selectedClass.layout.map((row) =>
+        row.map((seatCount) => {
+          if (seatCount === null) return null;
+          return Array(seatCount).fill(null); 
+        })
+      );
+      setAssignedSeats(assigned);
+      setAvailableStudents([...(selectedGroup?.students || [])]);
+    }
+  }, [selectedClass, selectedGroup]);
+
+  const sendData = async () => {
+    const res = await createPlan({class_id: selectedClass._id, group_id: selectedGroup._id, plan: assignedSeats})
+    if(res.status === 201){
+      alert("success", "Plan succesfully created.")
+      return navigate("/sitManager/seatingPlans")
+    }
+    if(res.status === 500){
+      alert("error", `${res.message}`);
+    }
+  }
+
   const selectGroup = (id) => {
     const result = groups.flat().find((item) => item._id === id);
-    setSelectedGroup(result);
+    if(selectedClass){
+      if(result.students.length > selectedClass.total_seats){
+        alert("error", "This group is too large for this classroom.")
+      } else{
+        setSelectedGroup(result);
+      }
+    } else{
+      setSelectedGroup(result);
+    }
   };
 
   const selectClass = (id) => {
     const result = classrooms.flat().find((item) => item._id === id);
-    setSelectedClass(result);
+    if(selectedGroup){
+      if(result.total_seats < selectedGroup.students.length){
+        alert("error", "This classroom is too small for this group.")
+      } else{
+        setSelectedClass(result);
+      }
+    } else{
+      setSelectedClass(result);
+    }
   };
+
+  const changeSeatAssignment = (rowIdx, colIdx, seatIdx, e) => {
+    const selectedStudentName = e.target.value;
+
+    setAssignedSeats((prev) => {
+      const newAssigned = prev.map((r) => r.slice());
+
+      if (!newAssigned[rowIdx] || !newAssigned[rowIdx][colIdx]) return prev;
+
+      const seats = [...newAssigned[rowIdx][colIdx]];
+      const oldStudent = seats[seatIdx];
+
+      seats[seatIdx] = selectedStudentName === "" ? null : selectedStudentName;
+      newAssigned[rowIdx][colIdx] = seats;
+
+      setAvailableStudents(prevAvailable => {
+        let updatedAvailable = [...prevAvailable];
+      
+        if (oldStudent && oldStudent !== selectedStudentName) {
+          const studentToReturn = selectedGroup.students.find(s => s.student_name === oldStudent);
+          if (studentToReturn && !updatedAvailable.find(s => s.student_name === oldStudent)) {
+            updatedAvailable.push(studentToReturn);
+          }
+        }
+      
+        if (selectedStudentName !== "" && selectedStudentName !== oldStudent) {
+          updatedAvailable = updatedAvailable.filter(s => s.student_name !== selectedStudentName);
+        }
+      
+        return updatedAvailable;
+      });
+
+
+      return newAssigned;
+    });
+  };
+
+  const handleCancelButton = (e) => {
+    e.preventDefault();
+    setSelectedClass(null);
+    setSelectedGroup(null);
+    setAssignedSeats({});
+    setAvailableStudents([])
+  }
+
+  const handleButton = (e) => {
+    e.preventDefault();
+    if(availableStudents.length > 0){
+      alert("error", "You have to assign a seat to all the students.")
+    } else{
+      sendData();
+    }
+  }
 
   if (isLoading) return <LoadingPage />;
 
@@ -107,9 +205,14 @@ export default function CreateSeatingPlan() {
               )}
             </div>
           </div>
-
+          <div className="button-group">
+            <button className="group-edit-btn" onClick={handleButton}>Create plan</button>
+            <button className="group-delete-btn" onClick={handleCancelButton}>Cancel</button>
+          </div>
           <div className="classroom-preview">
-            <div id="cp-header"></div>
+            <div id="cp-header">
+              <h1>{selectedClass?.class_name}</h1>
+            </div>
             <div className="cc-table">
               {selectedClass && (
                 <table id="maleft">
@@ -135,7 +238,11 @@ export default function CreateSeatingPlan() {
                               />
                             );
                           }
-                        
+
+                          const seatsInCell =
+                            assignedSeats?.[rIdx]?.[cIdx] ||
+                            Array(cell).fill(null);
+
                           return (
                             <td
                               key={cIdx}
@@ -143,24 +250,39 @@ export default function CreateSeatingPlan() {
                               style={{ backgroundColor: "#EBEBEB" }}
                             >
                               <div className="seats-inside">
-                                {Array.from({ length: cell }, (_, i) => (
-                                  <div key={i} className="seat">
-                                    <select className="cc-table-select">
-                                      <option value="" selected>
-                                        Empty seat
-                                      </option>
-                                      {!selectedGroup && (
-                                        <option value="" disabled>
-                                          No group selected yet.
-                                        </option>
-                                      )}
-                                      {selectedGroup?.students.map(
+                                {seatsInCell.map((studentName, seatIdx) => (
+                                  <div key={seatIdx} className="seat">
+                                    <select
+                                      className="cc-table-select"
+                                      value={studentName || ""}
+                                      onChange={(e) =>
+                                        changeSeatAssignment(
+                                          rIdx,
+                                          cIdx,
+                                          seatIdx,
+                                          e
+                                        )
+                                      }
+                                    >
+                                      <option value="">Empty seat</option>
+                                      {availableStudents.map(
                                         (student, index) => (
-                                          <option key={index}>
+                                          <option
+                                            key={index}
+                                            value={student.student_name}
+                                          >
                                             {student.student_name}
                                           </option>
                                         )
                                       )}
+                                      {studentName &&
+                                        !availableStudents.find(
+                                          (s) => s.student_name === studentName
+                                        ) && (
+                                          <option value={studentName}>
+                                            {studentName}
+                                          </option>
+                                        )}
                                     </select>
                                   </div>
                                 ))}
