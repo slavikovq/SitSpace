@@ -15,6 +15,10 @@
 .c-header {
   font-weight: bold;
   font-size: 1.6rem;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c-footer {
