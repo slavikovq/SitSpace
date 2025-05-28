@@ -127,3 +127,13 @@
   font-size: 1.1rem;
   width: 100%;
 }
+
+@media screen and (max-width: 710px) {
+  #flex{
+    justify-content: center;
+  }
+  .g-card{
+    max-width: auto;
+    width: 100%;
+  }
+}

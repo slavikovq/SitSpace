@@ -64,7 +64,7 @@ export default function ViewClass() {
 
   return (
     <SitManagerView
-      headerText={`Classroom (${classroom.class_name})`}
+      headerText={`Classroom`}
       pageNow={"classes"}
     >
       <div className="cc-body">
@@ -95,7 +95,7 @@ export default function ViewClass() {
         </div>
 
         <div className="classroom-preview">
-          <h1 id="cp-header">Class preview</h1>
+          <h1 id="cp-header">{classroom.class_name}</h1>
           <div className="cc-table">
             <table>
               <tbody>

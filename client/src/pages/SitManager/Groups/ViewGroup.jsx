@@ -65,7 +65,7 @@ export default function ViewGroup() {
 
   return (
     <SitManagerView
-      headerText={`Group (${group.group_name})`}
+      headerText={`Group`}
       pageNow={"groups"}
     >
       <div className="g-body">
@@ -87,7 +87,7 @@ export default function ViewGroup() {
         </div>
 
         <div className="group-preview">
-          <h1>Group preview</h1>
+          <h1>Group preview ({group.group_name})</h1>
           <table>
             <thead>
               <tr>
