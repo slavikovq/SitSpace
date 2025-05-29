@@ -48,7 +48,7 @@ export default function AppRoutes() {
             <Route path="/sitManager/updateClassroom" element={<UpdateClassroom/>} />
 
             <Route path="/sitManager/seatingPlan/:id" element={<ViewSeatingPlan/>} />
-            <Route path="/sitManager/updateSeatingPlan" element={<UpdateSeatingPlan/>} />
+            <Route path="/sitManager/updateSeatingPlan/:id" element={<UpdateSeatingPlan/>} />
 
             <Route path="/sitManager/manageReview" element={hasUserReview ? <UpdateReview/> : <CreateReview/>} />
             <Route path="/sitManager/account" element={<Account/>} />

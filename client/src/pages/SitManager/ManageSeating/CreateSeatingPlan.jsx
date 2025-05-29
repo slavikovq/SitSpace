@@ -264,7 +264,7 @@ export default function CreateSeatingPlan() {
                                         )
                                       }
                                     >
-                                      <option value="">Empty seat</option>
+                                      <option value="" style={{color: "red"}}>Empty seat</option>
                                       {availableStudents.map(
                                         (student, index) => (
                                           <option
