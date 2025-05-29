@@ -21,18 +21,14 @@ export default function UpdateSeatingPlan() {
   useEffect(() => {
     document.title = "Update seating plan • SitSpace";
 
-    const loadData = async () => {
+    const load = async () => {
       const [resGroups, resClassrooms, resPlan] = await Promise.all([
         getAllUserGroups(),
         getAllUserClasses(),
         getUserPlanById(id),
       ]);
 
-      if (
-        resGroups.status === 200 &&
-        resClassrooms.status === 200 &&
-        resPlan.status === 200
-      ) {
+      if (resGroups.status === 200 && resClassrooms.status === 200 && resPlan.status === 200) {
         const plan = resPlan.payload;
         const classroom = resClassrooms.payload
           .flat()
@@ -61,7 +57,7 @@ export default function UpdateSeatingPlan() {
       }
     };
 
-    loadData();
+    load();
   }, []);
 
   const changeSeatAssignment = (rowIdx, colIdx, seatIdx, e) => {
@@ -160,10 +156,10 @@ export default function UpdateSeatingPlan() {
               <h3>Class information</h3>
               <div className="scp-details">
                 <div>
-                  <span>Classroom:</span> {selectedClass.class_name}
+                  <span>Classroom: </span> {selectedClass.class_name}
                 </div>
                 <div>
-                  <span>Number of seats:</span> {selectedClass.total_seats}
+                  <span>Number of seats: </span> {selectedClass.total_seats}
                 </div>
               </div>
             </div>

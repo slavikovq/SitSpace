@@ -53,7 +53,7 @@ export default function CreateSeatingPlan() {
   }, [selectedClass, selectedGroup]);
 
   const sendData = async () => {
-    const res = await createPlan({class_id: selectedClass._id, group_id: selectedGroup._id, plan: assignedSeats})
+    const res = await createPlan({class_id: selectedClass._id, group_id: selectedGroup._id, plan: assignedSeats, classroom_name: selectedClass.class_name, group_name: selectedGroup.group_name, customGroup_id: selectedGroup.group_id, seats_count: selectedClass.total_seats, students_count: selectedGroup.students.length})
     if(res.status === 201){
       alert("success", "Plan succesfully created.")
       return navigate("/sitManager/seatingPlans")

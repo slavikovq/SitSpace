@@ -37,9 +37,14 @@ exports.createPlan = async (req, res) => {
   try {
     const data = new Plan({
       author_id: req.user.userId,
-      userCanView_id: req.body.userCanView_id,
+      user_collaboration_id: req.user.userId,
       class_id: req.body.class_id,
       group_id: req.body.group_id,
+      classroom_name: req.body.classroom_name,
+      group_name: req.body.group_name,
+      customGroup_id: req.body.customGroup_id,
+      seats_count: req.body.seats_count,
+      students_count: req.body.students_count,
       plan: req.body.plan
     });
 
@@ -66,9 +71,6 @@ exports.updatePlan = async (req, res) => {
       return res.status(404).json({ message: "Plan not found! " });
 
     const data = {
-      userCanView_id: req.body.userCanView_id,
-      class_id: req.body.class_id,
-      group_id: req.body.group_id,
       plan: req.body.plan
     };
 

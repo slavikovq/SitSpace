@@ -21,6 +21,22 @@
   flex-wrap: wrap;
 }
 
+#viewSpecific{
+  display: block;
+}
+
+#viewSpecificBtn{
+  justify-content: center;
+}
+
+#large{
+  width: 500px;
+}
+
+#noBorder{
+  margin-top: 0;
+  border: none;
+}
 
 .scp-card {
   width: 400px;
