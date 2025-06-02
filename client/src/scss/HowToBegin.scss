@@ -23,7 +23,11 @@
 .htb-cards {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 30px;
+  row-gap: 40px;
 }
+
 
 .htb-card {
   width: 450px;
@@ -48,4 +52,20 @@
 .htb-card p {
     text-align: center;
     font-size: 1.1rem;
+}
+
+
+@media (max-width: 1024px) {
+  .htb-card {
+    width: 100%;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .htb-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }
