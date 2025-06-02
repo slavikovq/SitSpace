@@ -4,6 +4,7 @@
 
 .main {
   display: flex;
+  align-items: center; 
   gap: 150px;
   padding: 5% 5%;
 }
@@ -52,6 +53,7 @@
   display: flex;
   justify-content: space-evenly;
   padding: 30px;
+  flex-wrap: wrap;
 }
 
 .statistics-card h1 {
@@ -75,4 +77,85 @@
 
 .statistics-card > div:not(:last-child) {
   padding-right: 20px;
+}
+
+@media (max-width: 1350px) {
+  .statistics-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .statistics-card h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+  .statistics-card p {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+  }
+
+  .main {
+    gap: 80px;
+    padding: 5% 3%;
+  }
+}
+
+@media (max-width: 1055) {
+  .statistics-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .statistics-card h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+  .statistics-card p {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+  }
+
+  .main {
+    gap: 80px;
+    padding: 5% 3%;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .main {
+    flex-direction: column;
+    padding: 8% 5%;
+    gap: 40px;
+  }
+
+  .main div {
+    width: 100%;
+  }
+
+  .main h1 {
+    font-size: 2.2rem;
+  }
+
+  .main p {
+    font-size: 1.2rem;
+  }
+
+
+  .statistics-card h1 {
+    font-size: 2rem;
+  }
+
+  .statistics-card p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-height: 700px) {
+  #Statistics {
+    margin-top: 0px;
+    padding-top: 20px;
+  }
 }

@@ -24,6 +24,7 @@
   display: flex;
   justify-content: center;
   gap: 80px;
+  flex-wrap: wrap;
 }
 
 .all-reviews-button {
@@ -47,3 +48,4 @@
   justify-content: center;
   margin-top: 1rem;
 }
+

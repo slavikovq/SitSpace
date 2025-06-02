@@ -6,6 +6,7 @@
   height: 80vh;
   padding: 8% 8%;
   display: flex;
+  align-items: center; 
 }
 
 .content h1 {
@@ -23,6 +24,7 @@
 .buttons {
   gap: 30px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .GS-button,
