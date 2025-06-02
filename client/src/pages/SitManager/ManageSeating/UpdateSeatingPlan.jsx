@@ -131,7 +131,7 @@ export default function UpdateSeatingPlan() {
     navigate("/sitManager/seatingPlans");
   };
 
-  if (isLoading) return <LoadingPage />;
+  if (isLoading) return <LoadingPage extra={"You can't modify this seating plan. Because you deleted the group or class that was assigned to this seating plan."} />;
 
   if (isLoading === null) return <NotFound />;
 

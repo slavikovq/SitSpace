@@ -18,6 +18,8 @@ const reviewRouter = require('./routes/review');
 const groupRouter = require('./routes/group');
 const classRouter = require('./routes/class');
 const planRouter = require('./routes/plan');
+const inviteRouter = require('./routes/invite');
+const shareRouter = require('./routes/share');
 
 var app = express();
 app.use(cors());
@@ -38,6 +40,8 @@ app.use('/review', reviewRouter)
 app.use('/group', groupRouter)
 app.use('/class', classRouter)
 app.use('/plan', planRouter)
+app.use('/invite', inviteRouter)
+app.use('/share', shareRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -94,6 +94,21 @@ exports.getUserById = async (req, res) => {
   }
 };
 
+exports.getUserByEmail = async (req, res) => {
+  try {
+    const user = await User.findOne({email: req.params.email});
+
+    if (!user) return res.status(404).json({ message: "User with this email does not exist" });
+
+    res.status(200).send({
+      message: "User found",
+      payload: user,
+    });
+  } catch (err) {
+    res.status(500).json({ erorr: err.message });
+  }
+};
+
 exports.updateUser = async (req, res) => {
   try {
     const user = await User.findById(req.user.userId);

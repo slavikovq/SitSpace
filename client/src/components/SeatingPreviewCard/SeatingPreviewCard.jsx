@@ -7,7 +7,7 @@ import { alert } from "../../utils/sweetAlert";
 import { Link } from "react-router-dom";
 import { deletePlan } from "../../models/plan";
 
-export default function SeatingPreviewCard({ plan }) {
+export default function SeatingPreviewCard({ plan, view, sharedBy }) {
   const deleteConfirm = async () => {
     const Alert = Swal.mixin({
       buttonsStyling: true,
@@ -52,12 +52,18 @@ export default function SeatingPreviewCard({ plan }) {
         </div>
         <div className="sp-footer">
           <div className="sp-icons">
-            <Link to={`/sitManager/updateSeatingPlan/${plan._id}`}>
-              <img src={pencil} alt="edit" />
-            </Link>
-            <Link>
-              <img src={trash} alt="delete" onClick={deleteConfirm} />
-            </Link>
+            {view === "normal" ? (
+              <>
+                <Link to={`/sitManager/updateSeatingPlan/${plan._id}`}>
+                  <img src={pencil} alt="edit" />
+                </Link>
+                <Link>
+                  <img src={trash} alt="delete" onClick={deleteConfirm} />
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
           </div>
           <Link
             to={`/sitManager/seatingPlan/${plan._id}`}

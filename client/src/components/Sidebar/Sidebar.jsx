@@ -12,6 +12,7 @@ import star from "../../assets/icons/star.svg";
 import userIcon from "../../assets/icons/user.svg";
 import house from "../../assets/icons/house.svg";
 import xmark from "../../assets/icons/xmark.svg";
+import peopleGroup from "../../assets/icons/peopleGroup.svg"
 
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -115,6 +116,14 @@ export default function Sidebar({ page, activeSidebar, showSidebar }) {
               >
                 <img src={folder} alt="" />
                 Groups
+              </Link>
+              <Link
+                to="/sitManager/invitePeople"
+                className="nav-item"
+                id={page === "invite" ? "active" : ""}
+              >
+                <img src={peopleGroup} alt="" />
+                Invite people
               </Link>
             </nav>
           </div>

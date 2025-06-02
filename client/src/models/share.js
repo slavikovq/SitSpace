@@ -1,9 +1,9 @@
-export const getAllUserPlans = async () => {
+export const getAllAuthorShares = async () => {
   const token = localStorage.getItem("token");
 
   if (!token) return null;
 
-  const req = await fetch("http://localhost:3000/plan", {
+  const req = await fetch("http://localhost:3000/share/author", {
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: "application/json",
@@ -21,35 +21,12 @@ export const getAllUserPlans = async () => {
   };
 };
 
-export const getAllSharedPlans = async (id) => {
+export const getAllUserShares = async () => {
   const token = localStorage.getItem("token");
 
   if (!token) return null;
 
-  const req = await fetch(`http://localhost:3000/plan/shared/${id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    method: "GET",
-  });
-
-  const data = await req.json();
-
-  return {
-    status: req.status,
-    message: data.message,
-    payload: data.payload,
-  };
-};
-
-export const getUserPlanById = async (id) => {
-  const token = localStorage.getItem("token");
-
-  if (!token) return null;
-
-  const req = await fetch(`http://localhost:3000/plan/${id}`, {
+  const req = await fetch("http://localhost:3000/share/user", {
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: "application/json",
@@ -68,12 +45,12 @@ export const getUserPlanById = async (id) => {
 };
 
 
-export const createPlan = async (formData) => {
+export const createShare = async (formData) => {
   const token = localStorage.getItem("token");
 
   if (!token) return null;
 
-  const req = await fetch("http://localhost:3000/plan/", {
+  const req = await fetch("http://localhost:3000/share/", {
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: "application/json",
@@ -92,36 +69,13 @@ export const createPlan = async (formData) => {
   };
 };
 
-export const updatePlan= async (id, formData) => {
+
+export const deleteShare = async (id) => {
   const token = localStorage.getItem("token");
 
   if (!token) return null;
 
-  const req = await fetch(`http://localhost:3000/plan/${id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    method: "PUT",
-    body: JSON.stringify(formData),
-  });
-
-  const data = await req.json();
-
-  return {
-    status: req.status,
-    message: data.message,
-    payload: data.payload,
-  };
-};
-
-export const deletePlan = async (id) => {
-  const token = localStorage.getItem("token");
-
-  if (!token) return null;
-
-  const req = await fetch(`http://localhost:3000/plan/${id}`, {
+  const req = await fetch(`http://localhost:3000/share/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: "application/json",

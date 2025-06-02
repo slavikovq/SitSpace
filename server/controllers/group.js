@@ -21,8 +21,6 @@ exports.getUserGroupById = async (req, res) => {
     const group = await Group.findById(req.params.id);
 
     if (!group) return res.status(404).json({ message: "Group not found! " });
-    if (group.author_id.toString() !== req.user.userId)
-      return res.status(404).json({ message: "Group not found! " });
 
     res.status(200).send({
       message: "Group found!",

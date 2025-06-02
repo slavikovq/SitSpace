@@ -1,0 +1,91 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss" as main;
+
+.i-body {
+  overflow: auto;
+  padding: 24px;
+  display: block;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+#flex{
+  display: flex;
+}
+
+.i-info h1 {
+  font-size: 1.1rem;
+  padding-bottom: 10px;
+}
+
+.i-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 400px;
+  line-height: 18px;
+}
+
+.i-details div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.i-details span {
+  font-weight: 600;
+}
+
+.button-i {
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.button-i button {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  width: 130px;
+  border-radius: 12px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.i-edit-btn {
+  background-color: black;
+  cursor: pointer;
+  @include main.scale-hover-effect;
+}
+
+.i-delete-btn {
+  background-color: variables.$decor-cal;
+  cursor: pointer;
+  @include main.scale-hover-effect;
+}
+
+.invites-box{
+    display: flex;
+    margin-top: 30px;
+    border-top: 1px solid #d3d3d3;
+
+    .i-left{
+        width: 50%;
+        padding: 10px;
+        border-right: 1px solid #d3d3d3;
+        
+        h1{
+            text-align: center;
+        }
+    }
+    .i-right{
+        width: 50%;
+        padding: 10px;
+
+        h1{
+            text-align: center;
+        }
+    }
+}

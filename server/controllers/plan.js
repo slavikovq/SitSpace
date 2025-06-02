@@ -1,4 +1,5 @@
 const Plan = require("../models/plan");
+const Share = require("../models/share")
 
 exports.getAllUserPlans = async (req, res) => {
   try {
@@ -16,14 +17,27 @@ exports.getAllUserPlans = async (req, res) => {
   }
 };
 
+exports.getAllSharedPlans = async (req, res) => {
+  try {
+    const plans = await Plan.find({ user_collaboration_id: req.params.id });
+
+    if (!plans) return res.status(404).json({ message: "Plans not found! " });
+
+    res.status(200).send({
+      message: "Plans found!",
+      payload: plans,
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 exports.getUserPlanById = async (req, res) => {
   try {
     const plan = await Plan.findById(req.params.id);
 
     if (!plan) return res.status(404).json({ message: "Plan not found! " });
-    if (plan.author_id.toString() !== req.user.userId)
-      return res.status(404).json({ message: "Plan not found! " });
-
+    
     res.status(200).send({
       message: "Plan found!",
       payload: plan,

@@ -25,6 +25,7 @@ import CreateSeatingPlan from "./SitManager/ManageSeating/CreateSeatingPlan";
 import CreateClassroom from "./SitManager/Classes/CreateClassroom";
 import UpdateClassroom from "./SitManager/Classes/UpdateClassroom";
 import UpdateSeatingPlan from "./SitManager/ManageSeating/UpdateSeatingPlan";
+import ManageInvite from "./SitManager/ManageInvite/ManageInvite";
 
 export default function AppRoutes() {
   const { user, isLoading } = useAuth();
@@ -62,6 +63,8 @@ export default function AppRoutes() {
             <Route path="/sitManager/classes" element={<ViewAllClasses/>} />
             <Route path="/sitManager/createClassroom" element={<CreateClassroom/>} />
             <Route path="/sitManager/updateClassroom/:id" element={<UpdateClassroom/>} />
+
+            <Route path="/sitManager/invitePeople" element={<ManageInvite />} />
           </Route>
 
           <Route path="*" element={<NotFound />}/>

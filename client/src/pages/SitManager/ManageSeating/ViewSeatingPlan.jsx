@@ -9,9 +9,11 @@ import { getUserClassById } from "../../../models/class";
 import { alert } from "../../../utils/sweetAlert";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useAuth } from "../../../context/AuthProvider";
 
 export default function ViewSeatingPlan() {
   const { id } = useParams();
+  const { user } = useAuth();
   const [seatingPlan, setSeatingPlan] = useState();
   const [layout, setLayout] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -89,14 +91,25 @@ export default function ViewSeatingPlan() {
                   {seatingPlan.group_name}
                 </p>
               </div>
-              <div className="button-group" id="viewSpecificBtn">
-                <Link to={`/sitManager/updateSeatingPlan/${seatingPlan._id}`}>
-                  <button className="group-edit-btn">Edit plan</button>
-                </Link>
-                <button className="group-delete-btn" onClick={deleteConfirm}>
-                  Delete plan
-                </button>
-              </div>
+              {seatingPlan.author_id === user._id ? (
+                <>
+                  <div className="button-group" id="viewSpecificBtn">
+                    <Link
+                      to={`/sitManager/updateSeatingPlan/${seatingPlan._id}`}
+                    >
+                      <button className="group-edit-btn">Edit plan</button>
+                    </Link>
+                    <button
+                      className="group-delete-btn"
+                      onClick={deleteConfirm}
+                    >
+                      Delete plan
+                    </button>
+                  </div>
+                </>
+              ) : (
+                ""
+              )}
               <div className="cc-table">
                 <table id="maleft">
                   <thead>

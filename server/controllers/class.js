@@ -21,8 +21,6 @@ exports.getUserClassById = async (req, res) => {
     const classroom = await Class.findById(req.params.id);
 
     if (!classroom) return res.status(404).json({ message: "Class not found! " });
-    if (classroom.author_id.toString() !== req.user.userId)
-      return res.status(404).json({ message: "Class not found! " });
 
     res.status(200).send({
       message: "Class found!",
