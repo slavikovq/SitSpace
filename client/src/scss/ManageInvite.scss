@@ -89,3 +89,20 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+  .invites-box{
+    display: grid;
+
+    .i-left{
+      width: 100%;
+      border-right: none;
+    }
+    .i-right{
+      width: 100%;
+    }
+  }
+  .i-details{
+    width: auto;
+  }
+}

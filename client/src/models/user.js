@@ -109,6 +109,25 @@ export const getUserById = async (id) => {
   };
 };
 
+export const getUserStats = async () => {
+  const req = await fetch(`http://localhost:3000/user/stats`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "GET",
+  });
+
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    message: data.message,
+    payload: data.payload,
+  };
+};
+
+
 export const updateUser = async (formData) => {
   const token = localStorage.getItem("token");
 

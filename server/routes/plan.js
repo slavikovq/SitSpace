@@ -4,6 +4,7 @@ const planController = require("../controllers/plan");
 const auth = require("../middlewares/auth");
 
 router.get("/", auth, planController.getAllUserPlans);
+router.get("/stats", planController.getPlanStats);
 router.get("/shared/:id", auth, planController.getAllSharedPlans);
 router.get("/:id", auth, planController.getUserPlanById);
 router.post("/", auth, planController.createPlan);

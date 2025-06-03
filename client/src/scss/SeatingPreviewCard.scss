@@ -62,3 +62,9 @@
 .details span {
   font-weight: 600;
 }
+
+@media screen and (max-width: 710px) {
+  .sp-card{
+    width: 100%;
+  }
+}

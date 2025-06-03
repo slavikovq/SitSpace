@@ -44,6 +44,25 @@ export const getAllSharedPlans = async (id) => {
   };
 };
 
+export const getPlanStats = async () => {
+  const req = await fetch(`http://localhost:3000/plan/stats`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "GET",
+  });
+
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    message: data.message,
+    payload: data.payload,
+  };
+};
+
+
 export const getUserPlanById = async (id) => {
   const token = localStorage.getItem("token");
 

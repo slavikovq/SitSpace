@@ -4,6 +4,7 @@ const classController = require("../controllers/class");
 const auth = require("../middlewares/auth");
 
 router.get("/", auth, classController.getAllUserClasses);
+router.get("/stats", classController.getClassStats);
 router.get("/:id", auth, classController.getUserClassById);
 router.post("/", auth, classController.createClass);
 router.put("/:id", auth, classController.updateClass);

@@ -44,6 +44,24 @@ export const getUserClassById = async (id) => {
   };
 };
 
+export const getClassroomStats = async () => {
+  const req = await fetch(`http://localhost:3000/class/stats`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "GET",
+  });
+
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    message: data.message,
+    payload: data.payload,
+  };
+};
+
 
 export const createClass = async (formData) => {
   const token = localStorage.getItem("token");

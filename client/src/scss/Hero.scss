@@ -52,3 +52,10 @@
   background-color: white;
   border: 2px black solid;
 }
+
+@media screen and (max-width: 610px) {
+  .content h1{
+    font-size: 3.2rem;
+    width: auto;
+  }
+}

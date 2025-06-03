@@ -5,6 +5,7 @@ const auth = require("../middlewares/auth");
 const upload = require("../middlewares/upload");
 
 router.get("/", auth, userController.getUser);
+router.get("/stats", userController.getUserStats);
 router.get("/email/:email", userController.getUserByEmail);
 router.get("/:id", userController.getUserById);
 router.post("/login", userController.login);

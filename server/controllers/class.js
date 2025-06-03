@@ -31,6 +31,26 @@ exports.getUserClassById = async (req, res) => {
   }
 };
 
+exports.getClassStats = async (req, res) => {
+  try {
+    const classes = await Class.find();
+
+    if (!classes) {
+      return res.status(404).json({ message: "No classes found!" });
+    }
+
+    const totalClasses = classes.length;
+
+    res.status(200).json({
+      message: "Class statistics fetched successfully!",
+      payload: totalClasses
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
 exports.createClass = async (req, res) => {
   try {
     const lastClass = await Class.find({ author_id: req.user.userId })

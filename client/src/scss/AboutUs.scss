@@ -159,3 +159,18 @@
     padding-top: 20px;
   }
 }
+
+
+@media (max-width: 510px) {
+  .statistics-card {
+    display: block;
+  }
+  .statistics-card > div:not(:first-child) {
+    border: none;
+    padding-left: 0;
+  }
+  .statistics-card > div:not(:last-child) {
+  padding-right: 0;
+  }
+}
+

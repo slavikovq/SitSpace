@@ -109,6 +109,26 @@ exports.getUserByEmail = async (req, res) => {
   }
 };
 
+exports.getUserStats = async (req, res) => {
+  try {
+    const users = await User.find();
+
+    if (!users) {
+      return res.status(404).json({ message: "No users found!" });
+    }
+
+    const totalUsers = users.length;
+
+    res.status(200).json({
+      message: "User statistics fetched successfully!",
+      payload: totalUsers
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
 exports.updateUser = async (req, res) => {
   try {
     const user = await User.findById(req.user.userId);

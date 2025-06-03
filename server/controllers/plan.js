@@ -47,6 +47,25 @@ exports.getUserPlanById = async (req, res) => {
   }
 };
 
+exports.getPlanStats = async (req, res) => {
+  try {
+    const plans = await Plan.find();
+
+    if (!plans) {
+      return res.status(404).json({ message: "No plans found!" });
+    }
+
+    const totalPlans = plans.length;
+    res.status(200).json({
+      message: "Plan statistics fetched successfully!",
+      payload: totalPlans
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
 exports.createPlan = async (req, res) => {
   try {
     const data = new Plan({
